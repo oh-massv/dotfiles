@@ -24,10 +24,16 @@ function! s:source_rc(rc_file_name)
   endif
 endfunction
 
-call s:source_rc('dein.rc.vim')
-call s:source_rc('options.rc.vim')
+runtime! rc/*.vim
+"call s:source_rc('options.rc.vim')
+"call s:source_rc('dein.rc.vim')
 
 
+let loaded_matchparen = 1 "対応する括弧の非表示
+
+
+hi Normal guibg=NONE ctermbg=NONE
+highlight Comment cterm=italic
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 set rtp+=/usr/local/opt/fzf

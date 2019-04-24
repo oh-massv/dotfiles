@@ -1,4 +1,5 @@
-set t_Co=256 "ターミナルで256色表示を使う
+"set t_Co=256 "ターミナルで256色表示を使う
+set termguicolors
 
 set laststatus=2 " ステータスラインを常に表示
 set showmode " 現在のモードを表示
@@ -29,8 +30,14 @@ set softtabstop=2 " 連続した空白に対してタブキーやバックスペ
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
 "-------動作環境との統合関連の設定-------
-" set clipboard=unnamed " ヤンクでクリップボードにコピー
+set clipboard=unnamed " ヤンクでクリップボードにコピー
 
 " set clipboard=unnamed,autoselect
 
@@ -67,16 +74,11 @@ nnoremap <silent> st :tabnew<CR>
 nnoremap <silent> s] gt<CR>
 nnoremap <silent> s[ gT<CR>
 
-
-" show buffer
-noremap <C-l> :Unite buffer<CR>
-
-nnoremap <Leader>v :VimFilerExplorer<CR>
-
+noremap  <up>  <nop>
 noremap  <left>  <nop>
 noremap  <right> <nop>
 noremap  <down>  <nop>
 noremap! <up>    <nop>
 noremap! <left>  <nop>
 noremap! <right> <nop>
-noremap! <down>  <nop>nop
+noremap! <down>  <nop>
