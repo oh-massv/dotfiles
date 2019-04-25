@@ -1,0 +1,177 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  autocmd vimenter * NERDTree
+  let NERDTreeMinimalUI = 1
+  let NERDTreeDirArrows = 1
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+#repo = 'dracula/vim'
+#repo = 'jacoborus/tender.vim'
+repo = 'tomasr/molokai'
+#repo = 'hzchirs/vim-material'
+hook_add = '''
+  set background=dark
+  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+  "au MyAutoCmd VimEnter * nested colorscheme molokai
+
+  colorscheme molokai
+  let g:molokai_original = 1
+'''
+
+[[plugins]] # ステータスライン
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  "let g:lightline = {
+  "\   'colorscheme': 'Dracula'
+  "\}
+  "let g:lightline = {
+  "\   'colorscheme': 'tender'
+  "\}
+  "let g:lightline = { 
+  "\   'colorscheme': 'seoul256'
+  "\}
+  "let g:lightline = { 
+  "\   'colorscheme': 'material'
+  "\}
+  let g:lightline = { 
+  \   'colorscheme': 'molokai'
+  \}
+  "let g:lightline.colorscheme = 'hybrid'
+'''
+
+[[plugins]]
+repo = 'munshkr/vim-tidal'
+
+# Language
+#[[plugins]]
+#repo = 'hail2u/vim-css3-syntax'
+
+#[[plugins]]
+#repo = 'othree/html5.vim'
+
+#[[plugins]]
+#repo = 'kana/vim-filetype-haskell'
+
+#[[plugins]]
+#repo = 'cespare/vim-toml'
+
+#[[plugins]]
+#repo = 'elzr/vim-json'
+#hook_add = '''
+#let g:vim_json_syntax_conceal = 0
+#'''
+
+#[[plugins]]
+#repo = 'moll/vim-node'
+
+[[plugins]]
+repo = 'myhere/vim-nodejs-complete'
+on_ft = ['javascript']
+hook_add = '''
+  setl omnifunc=jscomplete#CompleteJS
+  if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+  endif
+  let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+  let g:node_usejscomplete = 1
+'''
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'fleischie/vim-styled-components'
+on_ft = ['javascript', 'javascript.jsx']
+
+#[[plugins]]
+#repo = 'pangloss/vim-javascript'
+#on_ft = ['javascript', 'javascript.jsx']
+
+#[[plugins]]
+#repo = 'othree/yajs.vim'
+
+#[[plugins]]
+#repo = 'othree/es.next.syntax.vim'
+
+#[[plugins]]
+#repo = 'othree/javascript-libraries-syntax.vim'
+
+#[[pluigins]]
+#repo = 'sheerun/vim-polyglot'
+
+#[[plugins]]
+#repo = 'mxw/vim-jsx'
+#hook_add = '''
+#"let g:jsx_ext_required = 1
+#'''
+
+#[[plugins]]
+#repo = 'maxmellon/vim-jsx-pretty'
+#on_ft = ['javascript', 'javascript.jsx']
+#hook_add = '''
+#  let g:vim_jsx_pretty_colorful_config = 1
+#'''
+
+#[[plugins]]
+#repo = 'leafgarland/typescript-vim'
+
+#[[plugins]]
+#repo = 'octol/vim-cpp-enhanced-highlight'
+
+#[[plugins]]
+#repo = 'tikhomirov/vim-glsl'
+
+#[[plugins]]
+#repo = 'vim-scripts/smarty-syntax'
+
+#[[pluigins]]
+#repo = 'davidhalter/jedi-vim'
+
+#[[pluigins]]
+#repo = 'hdima/python-syntax'
+
+[[plugins]]
+repo = "sudar/vim-arduino-syntax"
+
+[[plugins]]
+repo = 'sophacles/vim-processing'
+on_ft = "processing"
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+
