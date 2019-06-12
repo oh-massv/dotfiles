@@ -5,7 +5,7 @@ if has('nvim') | let $NVIM_TUI_ENABLE_TRUE_COLOR=1 | endif
 
 "autocmd ColorScheme * highlight LineNr ctermbg=none
 
-"let g:python3_host_prog = substitute(system('which python3'),"\n","","")
+let g:python3_host_prog = substitute(system('which python3'),"\n","","")
 
 
 if has('nvim')
