@@ -1,6 +1,7 @@
 echo "Installing dotfiles."
 
-ln -sf `pwd`/config/nvim ~/.config
+ln -sf `pwd`/config/nvim ~/.config/
+ln -sf `pwd`/config/vim/.vimrc ~/
 ln -sf `pwd`/config/zsh/.zshrc ~/
 ln -sf `pwd`/config/zsh/.zsh_history ~/
 ln -sf `pwd`/config/tmux/.tmux.conf ~/
