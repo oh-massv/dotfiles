@@ -27,11 +27,17 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml('~/.config/dein/dein_lazy.toml', {'lazy': 1})
   "call dein#load_toml(s:toml,      {'lazy': 0})
   "call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#add('sonph/onehalf', {'rtp': 'vim/'})
+  call dein#add('kristijanhusak/vim-hybrid-material')
+  call dein#add('connorholyday/vim-snazzy')
 
   " Required:
   call dein#end()
   call dein#save_state()
 endif
+
+"color onehalfdark
+color snazzy
 
 " Required:
 filetype plugin indent on
