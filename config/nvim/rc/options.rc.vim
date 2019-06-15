@@ -9,7 +9,10 @@ set ruler " ステータスラインの右側にカーソルの現在位置を�
 set noswapfile
 
 "-------画面表示設定-------
-set number         " 行番号を表示する
+set number relativenumber
+autocmd InsertEnter * :setlocal norelativenumber
+autocmd InsertLeave * :setlocal relativenumber
+
 set cursorline     " カーソル行の背景色を変える
 set title " タイトルをウインドウ枠に表示する
 set relativenumber
