@@ -1,9 +1,7 @@
 "set t_Co=256 "ターミナルで256色表示を使う
 set termguicolors
 
-set laststatus=2 " ステータスラインを常に表示
 set showmode " 現在のモードを表示
-set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの現在位置を表示する
 
 set noswapfile
@@ -46,11 +44,6 @@ set clipboard=unnamed " ヤンクでクリップボードにコピー
 
 "-------キー設定-------
 
-let mapleader=","
-
-noremap <Leader>w :w<CR>
-noremap <Leader>q :wq<CR>
-
 " バッファ移動系
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
@@ -58,25 +51,27 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> [B :blast<CR>
 nnoremap <Leader>b :bdelete<CR>
 
-" スプリットウインドウ
-nnoremap <silent> ss :split<CR>
-nnoremap <silent> sv :vsplit<CR>
+nnoremap s <nop>
 nnoremap <silent> sh <C-w>h<CR>
 nnoremap <silent> sj <C-w>j<CR>
 nnoremap <silent> sk <C-w>k<CR>
 nnoremap <silent> sl <C-w>l<CR>
-
+nnoremap <silent> sH <C-w>H<CR>
+nnoremap <silent> sJ <C-w>J<CR>
+nnoremap <silent> sK <C-w>K<CR>
+nnoremap <silent> sL <C-w>L<CR>
+nnoremap <silent> ss :split<CR>
+nnoremap <silent> sv :vsplit<CR>
+nnoremap <silent> sw <C-w>w<CR>
+nnoremap <silent> sc <C-w>c<CR>
 nnoremap <silent> s= <C-w>=<CR>
-nnoremap <silent> s> <C-w>><CR>
-nnoremap <silent> s< <C-w><<CR>
-nnoremap <silent> s+ <C-w>+<CR>
-nnoremap <silent> s- <C-w>-<CR>
 
 " タブページ系
 nnoremap <silent> st :tabnew<CR>
-nnoremap <silent> s] gt<CR>
-nnoremap <silent> s[ gT<CR>
+nnoremap <silent> sn gt<CR>
+nnoremap <silent> sp gT<CR>
 
+" カーソルキー
 noremap  <up>  <nop>
 noremap  <left>  <nop>
 noremap  <right> <nop>

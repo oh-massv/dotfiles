@@ -19,16 +19,12 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let g:rc_dir    = expand("~/.config/dein/")
-  let s:toml      = g:rc_dir . 'dein.toml'
-  let s:lazy_toml = g:rc_dir . 'dein_lazy.toml'
+  let s:toml_dir = expand("~/.config/dein")
 
-  call dein#load_toml('~/.config/dein/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/dein/dein_lazy.toml', {'lazy': 1})
-  "call dein#load_toml(s:toml,      {'lazy': 0})
-  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
+
   call dein#add('sonph/onehalf', {'rtp': 'vim/'})
-  call dein#add('kristijanhusak/vim-hybrid-material')
   call dein#add('connorholyday/vim-snazzy')
 
   " Required:
@@ -36,8 +32,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-"color onehalfdark
-color snazzy
+color onehalfdark
 
 " Required:
 filetype plugin indent on

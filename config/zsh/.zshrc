@@ -86,6 +86,6 @@ fi
 export FZF_COMPLETION_TRIGGER=','
 
 export FZF_DEFAULT_OPTS='
-  --color fg:252,bg:bw,hl:67,fg+:252,bg+:235,hl+:81
+  --color fg:#999999,bg:-1,hl:67,fg+:252,bg+:-1,hl+:81
   --color info:144,prompt:161,spinner:135,pointer:135,marker:118
 '

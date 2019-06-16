@@ -22,16 +22,51 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-#[[plugins]] # ステータスライン
-#repo = 'itchyny/lightline.vim'
-#hook_add = '''
-#  let g:lightline = {
-#  \   'colorscheme': 'snazzy'
-#  \}
-#'''
-
 [[plugins]]
-repo = 'munshkr/vim-tidal'
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  set laststatus=2
+	set showtabline=2
+  let g:lightline = {
+        \ 'colorscheme': 'onehalfdark',
+        \ 'active': {
+        \   'left': [['mode', 'paste'], ['filename', 'modified']],
+        \   'right': [['lineinfo'], ['fileencoding', 'filetype'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+        \ },
+        \ 'component_function': {
+        \   'linter_warnings': 'LightlineLinterWarnings',
+        \   'linter_errors': 'LightlineLinterErrors',
+        \   'linter_ok': 'LightlineLinterOK'
+        \ },
+        \ 'component_type': {
+        \   'readonly': 'error',
+        \   'linter_warnings': 'warning',
+        \   'linter_errors': 'error',
+        \   'linter_ok': 'ok'
+        \ },
+        \ }
+
+  function! LightlineLinterWarnings() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('⚠%d', all_non_errors)
+  endfunction
+
+  function! LightlineLinterErrors() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('✗%d', all_errors)
+  endfunction
+
+  function! LightlineLinterOK() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '✓' : ''
+  endfunction
+'''
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
@@ -41,18 +76,37 @@ repo = 'sophacles/vim-processing'
 on_ft = "processing"
 
 [[plugins]]
+repo = 'munshkr/vim-tidal'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-on_i = 1
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
+repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_add = '''
+  let g:indentLine_faster = 1
+'''
 
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_sign_column_always = 1
+  let g:ale_sign_error = '✗'
+  let g:ale_sign_warning = '⚠'
+'''
+
+[[plugins]]
+repo = 'kana/vim-submode'
+hook_add = '''
+  call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+  call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+  call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+  call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+  call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+  call submode#map('bufmove', 'n', '', '<', '<C-w><')
+  call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+  call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+'''

@@ -44,11 +44,17 @@ call plug#end()
 
 set background=dark
 color onehalfdark
-highlight Normal ctermbg=none
 syntax on
+
+hi Normal ctermbg=none
+hi LineNr guibg=NONE
+
 
 "let g:indentLine_setColors = 0
 let g:indentLine_conceallevel = 0
+
+set laststatus=2
+set showtabline=2
 
 " lightline
 let g:lightline = {
@@ -86,7 +92,7 @@ function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('⚠ %d', all_non_errors)
+  return l:counts.total == 0 ? '' : printf('⚠%d', all_non_errors)
 endfunction
 
 function! LightlineLinterErrors() abort
@@ -107,4 +113,3 @@ endfunction
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-"let g:lightline.active.right = [['lineinfo'], ['percent'], ['fileformat', 'fileencoding'], ['cfi']]

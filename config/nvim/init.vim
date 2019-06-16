@@ -25,15 +25,15 @@ function! s:source_rc(rc_file_name)
 endfunction
 
 runtime! rc/*.vim
-"call s:source_rc('options.rc.vim')
-"call s:source_rc('dein.rc.vim')
 
 
 let loaded_matchparen = 1 "対応する括弧の非表示
 
-
-hi Normal guibg=NONE ctermbg=NONE
-highlight Comment cterm=italic
+hi Normal guibg=NONE
+hi LineNr guibg=NONE
+hi CursorLine guibg=#555555
+hi VertSplit guifg=Grey30 guibg=NONE
+hi StatusLineNC guibg=NONE
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 set rtp+=/usr/local/opt/fzf
