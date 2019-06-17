@@ -44,6 +44,8 @@ set clipboard=unnamed " ヤンクでクリップボードにコピー
 
 "-------キー設定-------
 
+let mapleader=","
+
 " バッファ移動系
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
