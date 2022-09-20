@@ -67,6 +67,7 @@ return {
 
   hide_tab_bar_if_only_one_tab = true,
   adjust_window_size_when_changing_font_size = false,
+  use_fancy_tab_bar = false,
 
   window_padding = {
     left = 0,
