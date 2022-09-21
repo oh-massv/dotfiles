@@ -10,7 +10,6 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-  --use { 'neoclide/coc.nvim', branch = 'release' }
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
@@ -46,28 +45,14 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
-  --use 'folke/zen-mode.nvim'
-  use 'navarasu/onedark.nvim'
-  use 'matsuuu/pinkmare'
   use 'tiagovla/tokyodark.nvim'
+  use 'lunarvim/horizon.nvim'
+  -- use 'navarasu/onedark.nvim'
+  -- use 'matsuuu/pinkmare'
+  -- use 'ful1e5/onedark.nvim'
+  -- use 'Shatur/neovim-ayu'
 
-  --use 'ful1e5/onedark.nvim'
-  --use 'Shatur/neovim-ayu'
-
-  -- use({
-  --   "iamcco/markdown-preview.nvim",
-  --   run = function() vim.fn["mkdp#util#install"]() end,
-  -- })
-  -- use {
-  --   'iamcco/markdown-preview.nvim',
-  --   run = 'cd app && yarn install'
-  -- }
-  -- use {
-  --   'iamcco/markdown-preview.nvim',
-  --   ft = 'markdown',
-  --   run = function() vim.fn['mkdp#util#install']() end,
-  -- }
-  use {'iamcco/markdown-preview.nvim'}
+  use { 'iamcco/markdown-preview.nvim' } -- need to run 'yarn install' at packer start dir
   -- use 'github/copilot.vim'
 
   use 'lewis6991/gitsigns.nvim'

@@ -11,6 +11,9 @@ null_ls.setup {
     null_ls.builtins.diagnostics.markdownlint.with {
       filetypes = { 'markdown' },
     },
+    null_ls.builtins.formatting.markdownlint.with {
+      filetypes = { 'markdown' },
+    },
     null_ls.builtins.diagnostics.textlint.with {
       filetypes = { 'markdown' },
       -- prefer_local = 'node_modules/.bin',

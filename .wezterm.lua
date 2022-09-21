@@ -63,74 +63,106 @@ return {
   font_size = 15,
   use_ime = true,
 
+  -- Horizon Dark
   colors = {
-    foreground = '#a0A8CD',
-    background = '#11121D',
+    background = '#1C1E26',
+    foreground = '#D5D8DA',
+
     ansi = {
-      "#32344a",
-      "#f7768e",
-      "#9ece6a",
-      "#e0af68",
-      "#7aa2f7",
-      "#ad8ee6",
-      "#449dab",
-      "#787c99"
+      "#16161c",
+      "#E95678",
+      "#29D398",
+      "#FAB795",
+      "#26BBD9",
+      "#EE64AC",
+      "#59E1E3",
+      "#D5D8DA",
     },
     brights = {
-      "#444b6a",
-      "#ff7a93",
-      "#b9f27c",
-      "#ff9e64",
-      "#7da6ff",
-      "#bb9af7",
-      "#0db9d7",
-      "#acb0d0",
+      "#5b5858",
+      "#EC6A88",
+      "#3FDAA4",
+      "#FBC3A7",
+      "#3FC4DE",
+      "#F075B5",
+      "#6BE4E6",
+      "#D5D8DA",
     },
     tab_bar = {
-      background = "#11121D",
+      background = "#1C1E26",
       active_tab = {
-        bg_color = "#32344a",
-        fg_color = "#a0A8CD",
+        bg_color = "#2E303E",
+        fg_color = "#DCDFE4",
         intensity = "Bold",
         italic = true,
       },
       inactive_tab = {
-        bg_color = "#11121D",
-        fg_color = "#808080",
+        bg_color = "#1C1E26",
+        fg_color = "#5b5858",
       },
       inactive_tab_hover = {
-        bg_color = "#444b6a",
-        fg_color = "#909090"
+        bg_color = "#1C1E26",
+        fg_color = "#5b5858",
       },
       new_tab = {
-        bg_color = "#11121D",
-        fg_color = "#808080",
+        bg_color = "#1C1E26",
+        fg_color = "#5b5858",
       },
       new_tab_hover = {
-        bg_color = "#444b6a",
-        fg_color = "#909090"
+        bg_color = "#1C1E26",
+        fg_color = "#5b5858",
       }
     }
   },
-  -- tab_bar_style = {
-  --   active_tab_left = wezterm.format {
-  --     { Background = { Color = '#0b0022' } },
-  --     { Foreground = { Color = '#2b2042' } },
+
+  -- colors = {
+  --   foreground = '#a0A8CD',
+  --   background = '#11121D',
+  --   ansi = {
+  --     "#32344a",
+  --     "#f7768e",
+  --     "#9ece6a",
+  --     "#e0af68",
+  --     "#7aa2f7",
+  --     "#ad8ee6",
+  --     "#449dab",
+  --     "#787c99"
   --   },
-  --   active_tab_right = wezterm.format {
-  --     { Background = { Color = '#0b0022' } },
-  --     { Foreground = { Color = '#2b2042' } },
-  --     { Text = SOLID_RIGHT_ARROW },
+  --   brights = {
+  --     "#444b6a",
+  --     "#ff7a93",
+  --     "#b9f27c",
+  --     "#ff9e64",
+  --     "#7da6ff",
+  --     "#bb9af7",
+  --     "#0db9d7",
+  --     "#acb0d0",
   --   },
-  --   inactive_tab_left = wezterm.format {
-  --     { Background = { Color = '#0b0022' } },
-  --     { Foreground = { Color = '#139292' } },
-  --   },
-  --   inactive_tab_right = wezterm.format {
-  --     { Background = { Color = '#0b0022' } },
-  --     { Foreground = { Color = '#1b1032' } },
-  --     { Text = SOLID_RIGHT_ARROW },
-  --   },
+  --   tab_bar = {
+  --     background = "#11121D",
+  --     active_tab = {
+  --       bg_color = "#32344a",
+  --       fg_color = "#a0A8CD",
+  --       intensity = "Bold",
+  --       italic = true,
+  --     },
+  --     inactive_tab = {
+  --       bg_color = "#11121D",
+  --       fg_color = "#808080",
+  --     },
+  --     inactive_tab_hover = {
+  --       bg_color = "#444b6a",
+  --       fg_color = "#909090"
+  --     },
+  --     new_tab = {
+  --       bg_color = "#11121D",
+  --       fg_color = "#808080",
+  --     },
+  --     new_tab_hover = {
+  --       bg_color = "#444b6a",
+  --       fg_color = "#909090"
+  --     }
+  --   }
   -- },
 
   selection_word_boundary = ' \t\n{[}]()"\'',
@@ -157,8 +189,8 @@ return {
     top = 0,
     bottom = 0,
   },
-  window_background_opacity = 0.9,
-  -- text_background_opacity = 0.9,
+  window_background_opacity = 0.8,
+  text_background_opacity = 0.8,
   window_decorations = "RESIZE",
   -- window_frame = {
   --   border_left_width = '0.5cell',
