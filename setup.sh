@@ -4,7 +4,7 @@ ln -sf `pwd`/.zshrc ~/
 ln -sf `pwd`/.wezterm.lua ~/
 ln -sf `pwd`/.alacritty.yml ~/
 ln -sf `pwd`/.config/nvim ~/.config
-ln -sf `pwd`/.config/fish ~/.config
+ln -sf `pwd`/.config/fish/config.fish ~/.config/fish
 
 # --- need ---
 # fish
