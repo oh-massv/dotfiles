@@ -1,4 +1,5 @@
-local wk = require("which-key")
+local status, wk = pcall(require, "which-key")
+if (not status) then return end
 
 -- ref: https://github.com/hackorum/nfs/blob/master/lua/whichkey-config/init.lua
 
@@ -35,10 +36,39 @@ local mappings = {
   Q = { ":wq<cr>", "Save & Quit" },
   w = { ":w<cr>", "Save" },
   x = { ":bdelete<cr>", "Close" },
-  E = { ":e ~/.config/nvim/init.lua<cr>", "Edit config" },
-  f = { ":Telescope find_files<cr>", "Telescope Find Files" },
-  r = { ":Telescope live_grep<cr>", "Telescope Live Grep" },
+  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  -- E = { ":e ~/.config/nvim/init.lua<cr>", "Edit config" },
+  f = {
+    name = "Telescope",
+    -- f = { ":Telescope find_files<cr>", "Telescope Find Files" },
+    f = {
+      function()
+        require('telescope.builtin').find_files({
+          no_ignore = false,
+          hidden = true
+        })
+      end, "Telescope Find Files"
+    },
+    g = { ":Telescope live_grep<cr>", "Telescope Live Grep" },
+    b = { ":Telescope buffers<cr>", "Telescope Buffers" },
+    d = { ":Telescope diagnostics<cr>", "Telescope Diagnostics" },
+    n = {
+      function()
+        require('telescope').extensions.file_browser.file_browser({
+          path = "%:p:h",
+          cwd = vim.fn.expand('%:p:h'),
+          respect_gitignore = false,
+          hidden = true,
+          grouped = true,
+          previewer = false,
+          initial_mode = "normal",
+          layout_config = { height = 40 }
+        })
+      end, "Telescope File Browse"
+    }
+  },
   t = {
+    name = "Terminal",
     t = { ":ToggleTerm<cr>", "Split Below" },
     f = { toggle_float, "Floating Terminal" },
     l = { toggle_lazygit, "LazyGit" }
@@ -48,8 +78,8 @@ local mappings = {
     i = { ":LspInfo<cr>", "Connected Language Servers" },
     k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
     K = { "<cmd>Lspsaga hover_doc<cr>", "Hover Commands" },
-    w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder" },
-    W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder" },
+    -- w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder" },
+    -- W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder" },
     l = {
       '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>',
       "List Workspace Folders"
@@ -64,11 +94,6 @@ local mappings = {
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic" },
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
   },
-  z = {
-    name = "Focus",
-    z = { ":ZenMode<cr>", "Toggle Zen Mode" },
-    t = { ":Twilight<cr>", "Toggle Twilight" }
-  },
   p = {
     name = "Packer",
     r = { ":PackerClean<cr>", "Remove Unused Plugins" },
@@ -78,6 +103,11 @@ local mappings = {
     s = { ":PackerSync<cr>", "Sync Plugins" },
     S = { ":PackerStatus<cr>", "Packer Status" },
     u = { ":PackerUpdate<cr>", "Update Plugins" }
+  },
+  z = {
+    name = "Focus",
+    z = { ":ZenMode<cr>", "Toggle Zen Mode" },
+    t = { ":Twilight<cr>", "Toggle Twilight" }
   }
 }
 

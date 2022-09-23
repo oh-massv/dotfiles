@@ -1,8 +1,12 @@
+-- ref: 
+-- https://github.com/LunarVim/Neovim-from-scratch/
+-- https://github.com/SmiteshP/Dotfiles/tree/master/.config/nvim
+
 require('massv.base')
-require('massv.highlights')
 require('massv.maps')
 require('massv.plugins')
-require('massv.terminal')
+require('massv.highlights')
+require('massv.autocommands')
 
 local has = function(x)
   return vim.fn.has(x) == 1

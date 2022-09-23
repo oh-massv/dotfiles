@@ -6,5 +6,3 @@ zenMode.setup {
     twilight = { enabled = false },
   }
 }
-
--- vim.keymap.set('n', '<C-w>o', '<cmd>ZenMode<cr>', { silent = true })
