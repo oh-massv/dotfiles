@@ -112,6 +112,8 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
+nvim_lsp.eslint.setup {}
+
 nvim_lsp.tailwindcss.setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
