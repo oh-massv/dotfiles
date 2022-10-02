@@ -19,19 +19,21 @@ if (not status) then return end
 --     c = { fg = colors.gray1, bg = colors.bg },
 --   },
 -- }
+-- local navic = require('nvim-navic')
 
 lualine.setup {
   options = {
     -- theme = customHorizon,
-    theme = 'horizon',
-    -- section_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    -- theme = 'horizon',
+    theme = "auto",
+    section_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     icons_enabled = true,
     globalstatus = true,
   },
   sections = {
-    lualine_a = { "mode" },
+    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
     lualine_b = {
       "branch",
       "diff",
@@ -68,6 +70,22 @@ lualine.setup {
     lualine_y = {},
     lualine_z = {},
   },
+  -- winbar = {
+  --   lualine_a = {},
+  --   lualine_b = { navic.get_location() },
+  --   lualine_c = {},
+  --   lualine_x = { 'filename' },
+  --   lualine_y = {},
+  --   lualine_z = {},
+  -- },
+  -- inactive_winbar = {
+  --   lualine_a = {},
+  --   lualine_b = {},
+  --   lualine_c = {},
+  --   lualine_x = {},
+  --   lualine_y = {},
+  --   lualine_z = {},
+  -- },
   --options = {
   --  icons_enabled = true,
   --  theme = theme,

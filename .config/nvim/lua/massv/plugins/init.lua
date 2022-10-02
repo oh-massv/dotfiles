@@ -20,8 +20,10 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim' -- Common utilities
 
   ---- Themes
-  use { 'lunarvim/horizon.nvim', confi = conf('horizon') }
-  use 'tiagovla/tokyodark.nvim'
+  use { 'lunarvim/horizon.nvim' }
+  use { 'tiagovla/tokyodark.nvim' }
+  use { 'olivercederborg/poimandres.nvim' }
+  use { "catppuccin/nvim", as = "catppuccin", config = conf('catppuccin') }
   -- use 'navarasu/onedark.nvim'
   -- use 'matsuuu/pinkmare'
   -- use 'Shatur/neovim-ayu'
@@ -85,12 +87,27 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use { 'norcalli/nvim-colorizer.lua', config = conf('nvim-colorizer') }
   use { "folke/which-key.nvim", config = conf('which-key') }
+  -- use { 'fgheng/winbar.nvim', config = conf('winbar') }
   use {
-    "ur4ltz/surround.nvim",
-    config = function()
-      require "surround".setup { mappings_style = "surround" }
-    end
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig",
+    config = conf('navic')
   }
+  -- use {
+  --   "ur4ltz/surround.nvim",
+  --   config = function()
+  --     require "surround".setup { mappings_style = "surround" }
+  --   end
+  -- }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
   use { 'lukas-reineke/indent-blankline.nvim', config = conf('indent-blankline') }
   use { "folke/zen-mode.nvim", config = conf('zen-mode') }
   use "folke/twilight.nvim"

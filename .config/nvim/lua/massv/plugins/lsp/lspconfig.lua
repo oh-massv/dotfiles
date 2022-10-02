@@ -10,6 +10,8 @@ local protocol = require('vim.lsp.protocol')
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
+local navic = require("nvim-navic")
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -42,6 +44,10 @@ local on_attach = function(client, bufnr)
       buffer = bufnr,
       callback = function() vim.lsp.buf.formatting_seq_sync() end
     })
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
   end
 end
 
