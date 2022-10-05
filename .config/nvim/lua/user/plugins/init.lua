@@ -12,7 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 local conf = function(name)
-  return require("massv.plugins.config." .. name)
+  return require("user.plugins.config." .. name)
 end
 
 return require('packer').startup(function(use)
@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
   }
 
   ---- Lsp
-  use { 'neovim/nvim-lspconfig', config = require('massv.plugins.lsp') } -- LSP
+  use { 'neovim/nvim-lspconfig', config = require('user.plugins.lsp') } -- LSP
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use { 'williamboman/mason.nvim', config = conf('mason') }
   use 'williamboman/mason-lspconfig.nvim'
@@ -93,12 +93,6 @@ return require('packer').startup(function(use)
     requires = "neovim/nvim-lspconfig",
     config = conf('navic')
   }
-  -- use {
-  --   "ur4ltz/surround.nvim",
-  --   config = function()
-  --     require "surround".setup { mappings_style = "surround" }
-  --   end
-  -- }
   use({
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
