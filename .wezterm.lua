@@ -13,7 +13,7 @@ end
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
   -- if tab.is_active then
   return {
-    { Text = '    ' .. basename(tab.active_pane.foreground_process_name) .. '    ' },
+    { Text = '  ' .. basename(tab.active_pane.foreground_process_name) .. '  ' },
   }
   -- end
   -- return tab.active_pane.title
@@ -24,7 +24,9 @@ local function font_with_fallback(name, params)
   return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "CaskaydiaCove Nerd Font"
+-- local font_name = "Hack Nerd Font"
+local font_name = "JetBrainsMono Nerd Font"
+-- local font_name = "CaskaydiaCove Nerd Font"
 
 return {
   leader = { key = "s", mods = "CTRL" },
@@ -44,7 +46,7 @@ return {
     { key = "L", mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Right", 5 } } },
     { key = "c", mods = "LEADER", action = wezterm.action { CloseCurrentPane = { confirm = false } } },
   },
-  font = font_with_fallback(font_name),
+  font = font_with_fallback(font_name, { weight = 'Regular' }),
   font_rules = {
     {
       italic = true,
@@ -63,58 +65,60 @@ return {
   font_size = 15,
   use_ime = true,
 
+  color_scheme = "Catppuccin Mocha",
   -- Horizon Dark
-  colors = {
-    background = '#1C1E26',
-    foreground = '#D5D8DA',
+  -- colors = {
+  --   background = '#1C1E26',
+  --   foreground = '#D5D8DA',
 
-    ansi = {
-      "#16161c",
-      "#E95678",
-      "#29D398",
-      "#FAB795",
-      "#26BBD9",
-      "#EE64AC",
-      "#59E1E3",
-      "#D5D8DA",
-    },
-    brights = {
-      "#5b5858",
-      "#EC6A88",
-      "#3FDAA4",
-      "#FBC3A7",
-      "#3FC4DE",
-      "#F075B5",
-      "#6BE4E6",
-      "#D5D8DA",
-    },
-    tab_bar = {
-      background = "#1C1E26",
-      active_tab = {
-        bg_color = "#2E303E",
-        fg_color = "#DCDFE4",
-        intensity = "Bold",
-        italic = true,
-      },
-      inactive_tab = {
-        bg_color = "#1C1E26",
-        fg_color = "#5b5858",
-      },
-      inactive_tab_hover = {
-        bg_color = "#1C1E26",
-        fg_color = "#5b5858",
-      },
-      new_tab = {
-        bg_color = "#1C1E26",
-        fg_color = "#5b5858",
-      },
-      new_tab_hover = {
-        bg_color = "#1C1E26",
-        fg_color = "#5b5858",
-      }
-    }
-  },
+  --   ansi = {
+  --     "#16161c",
+  --     "#E95678",
+  --     "#29D398",
+  --     "#FAB795",
+  --     "#26BBD9",
+  --     "#EE64AC",
+  --     "#59E1E3",
+  --     "#D5D8DA",
+  --   },
+  --   brights = {
+  --     "#5b5858",
+  --     "#EC6A88",
+  --     "#3FDAA4",
+  --     "#FBC3A7",
+  --     "#3FC4DE",
+  --     "#F075B5",
+  --     "#6BE4E6",
+  --     "#D5D8DA",
+  --   },
+  --   tab_bar = {
+  --     background = "#1C1E26",
+  --     active_tab = {
+  --       bg_color = "#2E303E",
+  --       fg_color = "#DCDFE4",
+  --       intensity = "Bold",
+  --       italic = true,
+  --     },
+  --     inactive_tab = {
+  --       bg_color = "#1C1E26",
+  --       fg_color = "#5b5858",
+  --     },
+  --     inactive_tab_hover = {
+  --       bg_color = "#1C1E26",
+  --       fg_color = "#5b5858",
+  --     },
+  --     new_tab = {
+  --       bg_color = "#1C1E26",
+  --       fg_color = "#5b5858",
+  --     },
+  --     new_tab_hover = {
+  --       bg_color = "#1C1E26",
+  --       fg_color = "#5b5858",
+  --     }
+  --   }
+  -- },
 
+  -- Tokyodark
   -- colors = {
   --   foreground = '#a0A8CD',
   --   background = '#11121D',
@@ -165,23 +169,25 @@ return {
   --   }
   -- },
 
-  selection_word_boundary = ' \t\n{[}]()"\'',
+  -- font_antialias = "Subpixel",
+  -- freetype_load_target = 'Mono',
+  -- freetype_render_target = 'HorizontalLcd',
+  -- selection_word_boundary = ' \t\n{[}]()"\'',
   -- exit_behavior = "Hold",
-  harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
-  status_update_interval = 2000,
-  custom_block_glyphs = true,
-  allow_square_glyphs_to_overflow_width = "Always",
+  -- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+  -- custom_block_glyphs = true,
+  -- allow_square_glyphs_to_overflow_width = "Always",
 
-  hide_tab_bar_if_only_one_tab = false,
+  hide_tab_bar_if_only_one_tab = true,
   show_tab_index_in_tab_bar = false,
 
   adjust_window_size_when_changing_font_size = false,
-  bold_brightens_ansi_colors = false,
+  -- bold_brightens_ansi_colors = false,
 
   use_fancy_tab_bar = false,
   -- tab_bar_at_bottom = true,
 
-  force_reverse_video_cursor = true,
+  -- force_reverse_video_cursor = true,
 
   window_padding = {
     left = 0,
@@ -189,8 +195,8 @@ return {
     top = 0,
     bottom = 0,
   },
-  window_background_opacity = 0.8,
-  text_background_opacity = 0.8,
+  window_background_opacity = 0.95,
+  -- text_background_opacity = 0.8,
   window_decorations = "RESIZE",
   -- window_frame = {
   --   border_left_width = '0.5cell',
