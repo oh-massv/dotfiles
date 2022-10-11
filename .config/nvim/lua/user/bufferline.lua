@@ -1,20 +1,10 @@
 local status, bufferline = pcall(require, "bufferline")
 if (not status) then return end
 
-local mocha = require("catppuccin.palettes").get_palette "mocha"
+-- local mocha = require("catppuccin.palettes").get_palette "mocha"
 
 bufferline.setup({
-  highlights = require("catppuccin.groups.integrations.bufferline").get {
-    styles = { "italic", "bold" },
-    custom = {
-      all = {
-        fill = { bg = "#000000" },
-      },
-      mocha = {
-        background = { fg = mocha.text },
-      },
-    },
-  },
+  highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     mode = "buffers",
     separator_style = "slant",
@@ -26,7 +16,6 @@ bufferline.setup({
       icon = '▎', -- this should be omitted if indicator style is not 'icon'
       style = 'none',
     },
-    color_icons = true,
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level)
       local icon = level:match("error") and " " or " "
@@ -36,7 +25,17 @@ bufferline.setup({
     show_icons = true,
     show_buffer_close_icons = true,
     show_close_icon = false,
-    show_tab_indicators = false,
+    show_tab_indicators = true,
+    offsets = {
+      {
+        filetype = "NvimTree",
+        separator = false, -- use a "true" to enable the default, or set your own character
+        -- text = "Explorer",
+        -- highlight = "PanelHeading",
+        -- highlight = "Directory",
+        -- padding = 1,
+      },
+    },
   },
 })
 

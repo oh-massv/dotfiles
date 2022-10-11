@@ -1,10 +1,8 @@
-vim.cmd("autocmd!")
-
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
-vim.wo.number = true
+vim.opt.number = true
 
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -30,17 +28,25 @@ vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.signcolumn = 'yes'
 
+vim.opt.timeoutlen = 300
+
 vim.opt.mouse = 'a'
 
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
+vim.opt.hidden = true
+vim.opt.lazyredraw = true
+vim.opt.autoread = true
+vim.opt.showmode = false
+vim.opt.swapfile = false
+vim.opt.clipboard = "unnamedplus"
+vim.opt.splitbelow = true   -- force all horizontal splits to go below current window
+vim.opt.splitright = true   -- force all vertical splits to go to the right of current window
+vim.opt.undofile = true     -- enable persistent undo
+vim.opt.updatetime = 100    -- faster completion (4000ms default)
+vim.opt.cursorline = true
 
--- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = '*',
-  command = "set nopaste"
-})
+-- Undercurl
+-- vim.cmd([[let &t_Cs = "\e[4:3m"]])
+-- vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }

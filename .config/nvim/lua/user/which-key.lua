@@ -17,7 +17,14 @@ wk.setup {
       z = true, -- bindings for folds, spelling and others prefixed with z
       g = true, -- bindings for prefixed with g
     }
-  }
+  },
+  window = {
+    border = "none", -- none, single, double, shadow
+    position = "bottom", -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    -- winblend = 10
+  },
 }
 
 local Terminal = require('toggleterm.terminal').Terminal
@@ -31,12 +38,17 @@ local toggle_lazygit = function()
   return lazygit:toggle()
 end
 
+
 local mappings = {
   q = { ":q<cr>", "Quit" },
   Q = { ":wq<cr>", "Save & Quit" },
   w = { ":w<cr>", "Save" },
   x = { ":bdelete<cr>", "Close" },
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  v = { "<cmd>vsplit<cr>", "vsplit" },
+  h = { "<cmd>split<cr>", "split" },
+  b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+  -- c = { }
   -- E = { ":e ~/.config/nvim/init.lua<cr>", "Edit config" },
   f = {
     name = "Telescope",
@@ -52,20 +64,21 @@ local mappings = {
     g = { ":Telescope live_grep<cr>", "Telescope Live Grep" },
     b = { ":Telescope buffers<cr>", "Telescope Buffers" },
     d = { ":Telescope diagnostics<cr>", "Telescope Diagnostics" },
-    n = {
-      function()
-        require('telescope').extensions.file_browser.file_browser({
-          path = "%:p:h",
-          cwd = vim.fn.expand('%:p:h'),
-          respect_gitignore = false,
-          hidden = true,
-          grouped = true,
-          previewer = false,
-          initial_mode = "normal",
-          layout_config = { height = 40 }
-        })
-      end, "Telescope File Browse"
-    }
+    n = { ":Telescope file_browser<cr>", "Telescope File Browse" }
+    -- n = {
+    --   function()
+    --     require('telescope').extensions.file_browser.file_browser({
+    --       path = "%:p:h",
+    --       cwd = vim.fn.expand('%:p:h'),
+    --       respect_gitignore = false,
+    --       hidden = true,
+    --       grouped = true,
+    --       previewer = true,
+    --       initial_mode = "normal",
+    --       layout_config = { height = 40 }
+    --     })
+    --   end, "Telescope File Browse"
+    -- }
   },
   t = {
     name = "Terminal",
@@ -92,7 +105,8 @@ local mappings = {
     a = { '<cmd>Lspsaga code_action<cr>', "Code Action" },
     e = { '<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics" },
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic" },
-    N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
+    N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" },
+    f = { '<cmd>lua vim.lsp.buf.format  { async = true }<cr>', "Format" }
   },
   p = {
     name = "Packer",
