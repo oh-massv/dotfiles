@@ -52,7 +52,7 @@ symbol = " "
 symbol = " "
 disabled = false
 threshold = 75
-style = "bold dimmed green"
+# style = "bold dimmed green"
 
 [nim]
 symbol = " "
