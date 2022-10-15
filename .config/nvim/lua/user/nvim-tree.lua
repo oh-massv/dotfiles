@@ -13,24 +13,35 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
+    highlight_git = true,
     icons = {
+      git_placement = "signcolumn",
       glyphs = {
         default = "",
         symlink = "",
         git = {
-          unstaged = "",
-          staged = "S",
+          unstaged = "",
+          staged = "",
           unmerged = "",
-          renamed = "➜",
-          untracked = "U",
-          deleted = "",
+          renamed = "",
+          untracked = "",
+          deleted = "",
           ignored = "◌",
         },
       },
     },
   },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+    ignore_list = { "help" },
+  },
   filters = {
     dotfiles = false,
     custom = { "node_modules", "\\.cache" },
   },
+  git = {
+    enable = true,
+    ignore = false,
+  }
 })
