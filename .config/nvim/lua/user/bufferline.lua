@@ -13,12 +13,12 @@ bufferline.setup({
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
     indicator = {
-      icon = '▎', -- this should be omitted if indicator style is not 'icon'
-      style = 'none',
+      icon = "▎", -- this should be omitted if indicator style is not 'icon'
+      style = "none",
     },
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level)
-      local icon = level:match("error") and " " or " "
+      local icon = level:match("error") and " " or " "
       return " " .. icon .. count
       -- return " " .. icon
     end,
@@ -39,5 +39,5 @@ bufferline.setup({
   },
 })
 
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
