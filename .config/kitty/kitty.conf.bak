@@ -1515,6 +1515,6 @@ macos_traditional_fullscreen true
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Poimandres
 include current-theme.conf
 # END_KITTY_THEME
