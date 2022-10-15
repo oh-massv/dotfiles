@@ -13,6 +13,17 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "toggleterm",
+  "qf",
+  "notify",
+  "noice",
+  "dapui_scopes",
+  "dapui_breakpoints",
+  "dapui_stacks",
+  "dapui_watches",
+  "dap-repl",
+  "dap-terminal",
+  "dapui_console",
 }
 
 local get_filename = function()
@@ -106,4 +117,3 @@ M.setup = function()
 end
 
 return M
-
