@@ -44,10 +44,14 @@ ctrl + alt + cmd - right: yabai -m window --display next \
 # ******************************************
 # Move Window in Same Display
 # ******************************************
-alt + cmd - left: yabai -m window --swap west
-alt + cmd - right: yabai -m window --swap east
-alt + cmd - up: yabai -m window --swap north
-alt + cmd - down: yabai -m window --swap south
+# alt + cmd - left: yabai -m window --swap west
+# alt + cmd - right: yabai -m window --swap east
+# alt + cmd - up: yabai -m window --swap north
+# alt + cmd - down: yabai -m window --swap south
+alt + shift - h: yabai -m window --swap west
+alt + shift - l: yabai -m window --swap east
+alt + shift - k: yabai -m window --swap north
+alt + shift - j: yabai -m window --swap south
 ctrl + shift - h: yabai -m window --resize left:-50:0 || yabai -m window --resize right:-50:0
 ctrl + shift - l: yabai -m window --resize right:50:0 || yabai -m window --resize left:50:0
 ctrl + shift - j: yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
@@ -62,7 +66,8 @@ alt - 0x2F: yabai -m display --focus next \
 # ******************************************
 # Toggle FullScreen
 # ******************************************
-ctrl + alt + cmd - m: yabai -m window --toggle zoom-fullscreen
+# ctrl + alt + cmd - m: yabai -m window --toggle zoom-fullscreen
+alt - f: yabai -m window --toggle zoom-fullscreen
 # ******************************************
 # Mirror
 # ******************************************
