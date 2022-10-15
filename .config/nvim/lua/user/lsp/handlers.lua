@@ -7,7 +7,8 @@ if not status_cmp_ok then
   return
 end
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+-- M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
   local icons = {
@@ -75,7 +76,36 @@ local function attach_navic(client, bufnr)
   navic.attach(client, bufnr)
 end
 
+local keymap = function(mode, lhs, rhs, opts)
+  opts = vim.tbl_extend("keep", opts,
+    { noremap = true, silent = true, buffer = true })
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
+
+local function lsp_keymaps()
+  -- local opts = { noremap = true, silent = true, buffer = true, }
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
+  keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go To Definition" })
+  keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Go To Declaration" })
+  keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Information" })
+  keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "Go To References" })
+  keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Go To Implementation" })
+  keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Go To Type Definition" })
+  keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Actions" })
+  -- keymap("v", "ga", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", { desc = "Range code actions" })
+  keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help" })
+  keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename" })
+  -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
+  keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show Line Diagnostic" })
+  keymap("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Previous Diagnostic" })
+  keymap("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next Diagnostic" })
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>Format<cr>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+end
+
 M.on_attach = function(client, bufnr)
+  lsp_keymaps()
   attach_navic(client, bufnr)
 end
 
