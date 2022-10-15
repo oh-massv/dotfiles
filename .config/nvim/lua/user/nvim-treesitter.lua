@@ -1,10 +1,9 @@
-local status, ts = pcall(require, "nvim-treesitter.configs")
-if (not status) then return end
+local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not status_ok then return end
 
-ts.setup {
+treesitter.setup {
   highlight = {
     enable = true,
-    disable = {},
   },
   indent = {
     enable = true,
@@ -28,6 +27,10 @@ ts.setup {
   },
   autotag = {
     enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
 }
 
