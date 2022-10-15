@@ -1,4 +1,4 @@
-local status, indent_blankline = pcall(require, 'indent-blankline.nvim')
+local status, indent_blankline = pcall(require, "indent-blankline.nvim")
 if not status then
   return
 end
