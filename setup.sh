@@ -6,10 +6,12 @@ ln -sf $PWD/.config/alacritty/alacritty.yml ~/.config/alacritty
 ln -sf $PWD/.config/kitty ~/.config
 ln -sf $PWD/.config/nvim ~/.config
 ln -sf $PWD/.config/zellij ~/.config
-ln -sf $PWD/.config/fish/config.fish ~/.config/fish
+ln -sf $PWD/.config/fish ~/.config
 ln -sf $PWD/.config/starship.toml ~/.config
 ln -sf $PWD/.yabairc ~/
 ln -sf $PWD/.skhdrc ~/
+ln -sf $PWD/.tmux.conf ~/
+ln -sf $PWD/.tmux ~/
 
 # --- need ---
 # fish
