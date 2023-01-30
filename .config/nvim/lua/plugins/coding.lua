@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-cmdline", -- not included in LazyVim
     },
