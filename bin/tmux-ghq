@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -z $TMUX ]]; then
+  choose-ghq
+else
+  tmux popup -E '
+    ~/.bin/choose-ghq
+  '
+fi
