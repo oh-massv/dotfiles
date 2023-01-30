@@ -5,13 +5,14 @@ return {
       return {
         highlights = require("catppuccin.groups.integrations.bufferline").get(),
         options = {
+          always_show_bufferline = false,
           offsets = {
             {
               filetype = "neo-tree",
               separator = true,
               -- text = "Neo-tree",
-              -- highlight = "Directory",
-              highlight = "PanelHeading",
+              highlight = "Directory",
+              -- highlight = "PanelHeading",
               text_align = "left",
             },
           },
@@ -45,7 +46,13 @@ return {
       notify = {
         enabled = false,
       },
+      lsp = {
+        -- message = {
+        --   view = "notify",
+        -- },
+      },
       presets = {
+        command_palette = false,
         lsp_doc_border = true,
       },
       views = {
