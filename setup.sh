@@ -1,4 +1,4 @@
-echo "Installing dotfiles."
+# echo "Installing dotfiles."
 
 ln -sf $PWD/.zshrc ~/
 ln -sf $PWD/.wezterm.lua ~/
@@ -12,6 +12,8 @@ ln -sf $PWD/.yabairc ~/
 ln -sf $PWD/.skhdrc ~/
 ln -sf $PWD/.tmux.conf ~/
 ln -sf $PWD/.tmux ~/
+ln -sf $PWD/bin ~/.bin
+ln -sf $PWD/.config/lazygit ~/.config
 
 # --- need ---
 # fish
@@ -23,4 +25,4 @@ ln -sf $PWD/.tmux ~/
 # fzf
 # ghq
 
-echo "Done! Reload your terminal."
+# echo "Done! Reload your terminal."
