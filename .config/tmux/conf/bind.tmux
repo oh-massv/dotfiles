@@ -1,4 +1,4 @@
-bind r source-file ~/.config/tmux/tmux.conf \; display "~/.tmux.conf reloaded"
+bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded."
 
 # `$tmux list-keys` shows mapping
 
@@ -13,10 +13,10 @@ bind -n M-k select-pane -U
 bind -n M-l select-pane -R
 
 # vi のキーバインドでペインをリサイズする
-bind -r C-H resize-pane -L 5
-bind -r C-J resize-pane -D 5
-bind -r C-K resize-pane -U 5
-bind -r C-L resize-pane -R 5
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
 
 # window の作成, 移動
 
@@ -53,7 +53,7 @@ bind -n M-s split-window -v -c "#{pane_current_path}"
 #   xargs tmux switch-client -t"
 
 # bind g run-shell "fish -c \"create_session_with_ghq\""
-bind g run-shell "~/.bin/tmux-ghq"
+bind g run-shell "~/bin/tmux-ghq"
 # bind s run-shell "fish -c \"show_tmux_sessions\""
 bind s display-popup -E "\
   tmux list-sessions -F '#{session_name}' |\

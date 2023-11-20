@@ -4,6 +4,6 @@ if [[ -z $TMUX ]]; then
   choose-ghq
 else
   tmux popup -E '
-    ~/.bin/choose-ghq
+    ~/bin/choose-ghq
   '
 fi
