@@ -1,82 +1,93 @@
 return {
   {
-    "akinsho/bufferline.nvim",
-    opts = function()
-      return {
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
-        options = {
-          always_show_bufferline = false,
-          offsets = {
-            {
-              filetype = "neo-tree",
-              separator = true,
-              -- text = "Neo-tree",
-              highlight = "Directory",
-              -- highlight = "PanelHeading",
-              text_align = "left",
-            },
-          },
-        },
-      }
-    end,
-  },
-  -- {
-  --   "stevearc/dressing.nvim",
-  --   opts = {
-  --   },
-  -- },
-  {
-    "nvim-lualine/lualine.nvim",
+    "rcarriga/nvim-notify",
     opts = {
-      options = {
-        theme = "catppuccin",
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-      },
+      stages = "fade",
     },
   },
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
     opts = {
-      messages = {
-        view = "mini",
-        view_errow = "mini",
-        view_warn = "mini",
-      },
-      notify = {
-        enabled = false,
-      },
-      lsp = {
-        -- message = {
-        --   view = "notify",
-        -- },
+      cmdline = {
+        format = {
+          cmdline = { icon = "" },
+        },
       },
       presets = {
         command_palette = false,
         lsp_doc_border = true,
       },
       views = {
+        cmdline_popup = {
+          border = { style = "single" },
+        },
         mini = {
-          win_options = {
-            winblend = 0,
-          },
+          win_options = { winblend = 0 },
+        },
+        hover = {
+          border = { style = "single" },
         },
       },
     },
   },
   {
-    "goolord/alpha-nvim",
+    "rcarriga/nvim-notify",
+    opts = {
+      stages = "fade_in_slide_out",
+      timeout = 3000,
+      render = "compact",
+    },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
+    "freddiehaddad/feline.nvim",
+    enabled = false,
+    lazy = false,
     opts = function()
-      local dashboard = require("alpha.themes.dashboard")
-      dashboard.section.header.val = {
-        [[                               __                ]],
-        [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-        [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-        [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-        [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-        [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+      local ctp_feline = require("catppuccin.groups.integrations.feline")
+      return {
+        components = ctp_feline.get(),
       }
-      dashboard.section.header.opts.hl = "Macro"
+    end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    opts = {
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+    },
+  },
+  {
+    "utilyre/barbecue.nvim",
+    event = "VeryLazy",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {},
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    opts = function(_, opts)
+      local logo = [[ 
+███╗   ███╗ █████╗ ███████╗███████╗██╗   ██╗
+████╗ ████║██╔══██╗██╔════╝██╔════╝██║   ██║
+██╔████╔██║███████║███████╗███████╗██║   ██║
+██║╚██╔╝██║██╔══██║╚════██║╚════██║╚██╗ ██╔╝
+██║ ╚═╝ ██║██║  ██║███████║███████║ ╚████╔╝ 
+╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝  ╚═══╝  
+      ]]
+
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.config.header = vim.split(logo, "\n")
     end,
   },
 }

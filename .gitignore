@@ -1,1 +1,5 @@
-.config/nvim/plugin/packer_compiled.lua
+.config/AstroNvim
+.config/LazyVim
+.config/nvim.lazy
+.config/nvim.bak
+.config/lazygit/state.yml

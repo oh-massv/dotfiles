@@ -1,25 +1,25 @@
 # echo "Installing dotfiles."
 
-ln -sf $PWD/.zshrc ~/
-ln -sf $PWD/.wezterm.lua ~/
-ln -sf $PWD/.config/alacritty/alacritty.yml ~/.config/alacritty
-ln -sf $PWD/.config/kitty ~/.config
-ln -sf $PWD/.config/nvim ~/.config
-ln -sf $PWD/.config/zellij ~/.config
-ln -sf $PWD/.config/fish ~/.config
-ln -sf $PWD/.config/starship.toml ~/.config
-ln -sf $PWD/.yabairc ~/
-ln -sf $PWD/.skhdrc ~/
-ln -sf $PWD/.tmux.conf ~/
-ln -sf $PWD/.tmux ~/
-ln -sf $PWD/bin ~/.bin
-ln -sf $PWD/.config/lazygit ~/.config
+ln -sf $PWD/.zshrc $HOME/
+ln -sf $PWD/bin $HOME/.bin
+ln -sf $PWD/.config/tmux $HOME/.config
+ln -sf $PWD/.config/wezterm $HOME/.config
+ln -sf $PWD/.config/alacritty $HOME/.config
+ln -sf $PWD/.config/kitty $HOME/.config
+ln -sf $PWD/.config/nvim $HOME/.config
+# ln -sf $PWD/.config/AstroNvim $HOME/.config
+# ln -sf $PWD/.config/LazyVim $HOME/.config
+ln -sf $PWD/.config/zellij $HOME/.config
+ln -sf $PWD/.config/fish $HOME/.config
+ln -sf $PWD/.config/starship.toml $HOME/.config
+ln -sf $PWD/.config/yabai $HOME/.config
+ln -sf $PWD/.config/skhd $HOME/.config
+ln -sf $PWD/.config/lazygit $HOME/.config
+ln -sf $PWD/.config/asdf $HOME/.config
 
 # --- need ---
 # fish
 # git
-# anyenv
-# -- nodenv - node
 # python
 # go
 # fzf

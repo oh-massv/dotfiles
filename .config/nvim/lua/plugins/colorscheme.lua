@@ -1,32 +1,36 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-    opts = {
-      flavour = "mocha",
-      transparent_background = true,
-      term_color = true,
-      no_italic = false,
-      no_bold = false,
-      highlight_overrides = {
-        mocha = function(C)
-          return {}
-        end,
-      },
-      integrations = {
-        mason = true,
-        neotree = true,
-        navic = {
-          enabled = true,
-        },
-      },
-    },
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
     },
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      flavour = "mocha",
+      transparent_background = true,
+      term_colors = true,
+      styles = {
+        comments = {},
+        -- conditionals = {},
+      },
+      custom_highlights = function(colors)
+        return {
+          NotifyBackground = { bg = colors.base },
+          NoiceCmdlineIcon = { style = {} },
+          -- FoldColumn = { fg = colors.lavender },
+        }
+      end,
+      integrations = {
+        -- leap = true,
+        -- notifier = true,
+      },
+    },
+  },
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = true,
   },
 }

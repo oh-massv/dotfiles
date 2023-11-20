@@ -1,29 +1,19 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "help",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "glsl",
-        "vue",
-        "swift",
-        "php",
-        "fish",
-      },
-    },
+      })
+      opts.autotag = {
+        enable_close_on_slash = false,
+      }
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      enable = false,
+    }
   },
 }
