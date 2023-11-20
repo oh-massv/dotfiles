@@ -3,3 +3,4 @@
 .config/nvim.lazy
 .config/nvim.bak
 .config/lazygit/state.yml
+backup
