@@ -1,7 +1,7 @@
-bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded."
+unbind C-b
+set -g prefix C-s
 
 # `$tmux list-keys` shows mapping
-
 
 # 新しいウィンドウを作成する
 bind t new-window -c '#{pane_current_path}'
@@ -52,6 +52,8 @@ bind -n M-s split-window -v -c "#{pane_current_path}"
 #   fzf --reverse |\
 #   xargs tmux switch-client -t"
 
+bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded."
+
 # bind g run-shell "fish -c \"create_session_with_ghq\""
 bind g run-shell "~/bin/tmux-ghq"
 # bind s run-shell "fish -c \"show_tmux_sessions\""
@@ -61,9 +63,9 @@ bind s display-popup -E "\
   fzf --reverse |\
   xargs tmux switch-client -t"
 
-# tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
+bind V run-shell "~/bin/ide"
 
-bind b run-shell "tmux popup -E 'echo hello && sleep 2'"
+# tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
 
 # fzf --reverse --header jump-to-session --preview 'tmux capture-pane -pt {}'  |\
 
@@ -73,4 +75,3 @@ bind b run-shell "tmux popup -E 'echo hello && sleep 2'"
 bind -T copy-mode-vi v send-keys -X begin-selection
 # 'y' でコピー (default: Enter)
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
-
