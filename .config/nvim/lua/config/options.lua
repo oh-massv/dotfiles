@@ -6,8 +6,15 @@
 
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
+vim.opt.scrolloff = 10
 
 -- vim.opt.foldexpr="v:lua.vim.treesitter.foldexpr()"
 -- vim.opt.foldmethod="expr"
 
 vim.g.autoformat = false
+
+vim.filetype.add({
+  extension = {
+    mdx = "mdx",
+  }
+})

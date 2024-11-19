@@ -2,12 +2,12 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
---   pattern = { "*.vs", "*.fs", "*.vert", "*.frag" },
---   callback = function()
---     vim.opt_local.filetype = "glsl"
---   end,
--- })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.vs", "*.fs", "*.vert", "*.frag" },
+  callback = function()
+    vim.opt_local.filetype = "glsl"
+  end,
+})
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })

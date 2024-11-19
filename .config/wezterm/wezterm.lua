@@ -15,21 +15,19 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 return {
+  -- font = wezterm.font("JetBrainsMono Nerd Font"),
   font = wezterm.font_with_fallback({
     {
-      family = "JetBrains Mono",
+      family = "JetBrainsMono NF",
       weight = "Medium",
     },
-    {
-      family = "Symbols Nerd Font Mono",
-      scale = 0.65,
-    },
-    {
-      family = "游ゴシック体",
-    },
+    "Hiragino Sans",
   }),
-  -- use_cap_height_to_scale_fallback_fonts = true,
   font_size = 15,
+  -- freetype_interpreter_version = 35,
+  -- freetype_load_target = "Light",
+  -- freetype_render_target = "HorizontalLcd",
+  -- freetype_load_flags = "NO_HINTING",
   -- custom_block_glyphs = true,
   canonicalize_pasted_newlines = "None",
   use_ime = true,
@@ -47,7 +45,7 @@ return {
     top = 0,
     bottom = 0,
   },
-  window_background_opacity = 0.90,
+  window_background_opacity = 0.9,
   -- macos_window_background_blur = 80,
   text_background_opacity = 1.0,
   window_decorations = "RESIZE",

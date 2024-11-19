@@ -10,8 +10,8 @@ fish_add_path (go env GOPATH)/bin
 fish_add_path $HOME/.cargo/bin
 
 # asdf
-set -gx ASDF_CONFIG_FILE $HOME/.config/asdf/.asdfrc
-source /opt/homebrew/opt/asdf/libexec/asdf.fish # Added by asdf
+#set -gx ASDF_CONFIG_FILE $HOME/.config/asdf/.asdfrc
+#source /opt/homebrew/opt/asdf/libexec/asdf.fish # Added by asdf
 
 # docker
 source /Users/massv/.docker/init-fish.sh || true # Added by Docker Desktop
@@ -30,6 +30,7 @@ set -gx FZF_DEFAULT_OPTS '--height 40% --layout=reverse --info inline --color=fg
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR nvim
 set -gx TERM xterm-256color
+# set -gx TERM tmux-256color
 
 # set -U fish_user_paths (echo $fish_user_paths | tr ' ' '\n' | sort -u)
 

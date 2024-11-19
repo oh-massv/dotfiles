@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# WIP
+
 realpath() {
   [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
 }
@@ -14,6 +16,7 @@ safe_link() {
 SCRIPT_PATH=`realpath $0`
 DOTFILES=`dirname $SCRIPT_PATH`
 
+
 safe_link $DOTFILES/bin
 safe_link $DOTFILES/.zshrc
 
@@ -23,6 +26,15 @@ do
   safe_link $DOTFILES/.config/$f ".config"
 done
 
+
 # TODO: add git, fish, brew, ghq, fzf
+
+# if [ "$(uname)" == "Darwin" ]; then
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#   brew tap Homebrew/bundle
+#   brew bundle
+#
+#   xcode-select --install
+# fi
 
 echo "Done."
