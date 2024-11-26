@@ -6,13 +6,13 @@ return {
       table.insert(opts.ensure_installed, "markdownlint")
     end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.diagnostics.markuplint)
-      table.insert(opts.sources, nls.builtins.diagnostics.markdownlint)
-    end,
-  },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     local nls = require("null-ls")
+  --     table.insert(opts.sources, nls.builtins.diagnostics.markuplint)
+  --     table.insert(opts.sources, nls.builtins.diagnostics.markdownlint)
+  --   end,
+  -- },
 }

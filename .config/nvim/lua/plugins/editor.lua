@@ -79,16 +79,16 @@ return {
   --     require("ufo").setup()
   --   end,
   -- },
-  {
-    "akinsho/toggleterm.nvim",
-    config = function()
-      require("toggleterm").setup({
-        open_mapping = [[<c-\>]],
-        shade_terminals = false,
-        shell = vim.o.shell,
-      })
-    end,
-  },
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   config = function()
+  --     require("toggleterm").setup({
+  --       open_mapping = [[<c-\>]],
+  --       shade_terminals = false,
+  --       shell = vim.o.shell,
+  --     })
+  --   end,
+  -- },
   {
     "folke/zen-mode.nvim",
     enabled = false,

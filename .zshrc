@@ -1,5 +1,9 @@
 if [[ -o interactive ]]; then
-  exec /opt/homebrew/bin/fish
+  if /opt/homebrew/bin/fish -n ~/.config/fish/config.fish; then
+    exec /opt/homebrew/bin/fish
+  else
+    echo "Warning: fish configuration has errors. Falling back to zsh."
+  fi
 fi
 
-source /Users/massv/.docker/init-zsh.sh || true # Added by Docker Desktop
+# source /Users/massv/.docker/init-zsh.sh || true # Added by Docker Desktop
