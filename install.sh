@@ -2,18 +2,6 @@
 
 # WIP
 
-# TODO: add git, fish, brew, ghq, fzf
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  echo "MacOS detected"
-
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew tap Homebrew/bundle
-  brew bundle
-
-  xcode-select --install
-fi
-
 realpath() {
   readlink -f "$1" 2>/dev/null || echo "$PWD/${1#./}"
 }
@@ -40,6 +28,18 @@ safe_link "$DOTFILES"/.zshrc
 for f in "$DOTFILES"/.config/*; do
 	safe_link "$f" ".config"
 done
+
+# TODO: add git, fish, brew, ghq, fzf
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "MacOS detected"
+
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew tap Homebrew/bundle
+  brew bundle
+
+  xcode-select --install
+fi
 
 
 echo "Done."

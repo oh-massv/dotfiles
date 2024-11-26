@@ -12,8 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run brew bundle
-        run: brew bundle
-
       - name: Run install.sh
         run: ${GITHUB_WORKSPACE}install.sh
