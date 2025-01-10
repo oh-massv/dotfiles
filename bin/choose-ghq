@@ -1,21 +1,20 @@
 #!/bin/bash
-#
-selected=$(ghq list | fzf)
-status=$?
 
-if [ $status -eq 0 ]; then
+if selected=$(ghq list | fzf --height 100%); then
   repo_path=$(ghq root)/${selected}
-  owner=$(basename $(dirname $repo_path))
-  repo=$(basename $repo_path)
-  session_name=$(echo ${owner}/${repo} | sed -e "s/\./_/g")
-  tmux has-session -t $session_name 2>/dev/null
-  if [ $? != 0 ]; then
-    tmux new-session -c $repo_path -s $session_name -d
+  owner=${repo_path%/*}
+  owner=${owner##*/}
+  repo=${repo_path##*/}
+  session_name=${owner}/${repo}
+  session_name=${session_name//./_}
+
+  if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux new-session -c "$repo_path" -s "$session_name" -d
   fi
+
   if [[ -z $TMUX ]]; then
-    exec tmux attach-session -t $session_name
-  else
-    tmux switch-client -t $session_name
+    tmux attach-session -t "$session_name"
+  else 
+    tmux switch-client -t "$session_name"
   fi
 fi
-
