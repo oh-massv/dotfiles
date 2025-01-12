@@ -1,0 +1,20 @@
+font-family = "Commit Mono"
+font-family = "Hiragino Sans"
+font-synthetic-style = false
+font-size = 16
+font-thicken = true
+font-feature = -calt
+font-feature = -dlig
+adjust-cell-height = 20%
+
+theme = catppuccin-mocha
+
+background-opacity = 0.8
+background-blur-radius = 20
+
+macos-non-native-fullscreen = true
+macos-titlebar-style = hidden
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = #89b4fa
+macos-icon-screen-color = #313244
