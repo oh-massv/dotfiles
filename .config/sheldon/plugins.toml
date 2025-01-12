@@ -1,0 +1,22 @@
+shell = "zsh"
+
+# [plugins.zsh-defer]
+# github = "romkatv/zsh-defer"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+
+# [plugins.zsh-completions]
+# github = "zsh-users/zsh-completions"
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+
+[plugins.zsh-autosuggestions-abbreviations-strategy]
+github = "olets/zsh-autosuggestions-abbreviations-strategy"
