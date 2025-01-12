@@ -35,10 +35,6 @@ bind -n M-s split-window -v -c "#{pane_current_path}"
 # bind \\ split-window -h -c '#{pane_current_path}'
 # bind - split-window -v -c '#{pane_current_path}'
 
-# bind -n M-a choose-tree
-# bind -n M-e choose-session
-# bind -n M-w choose-tree -w
-
 # bind s new-window -n "session-switcher" "\
 #     tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
 #     sed '/^$/d' |\
@@ -54,21 +50,44 @@ bind -n M-s split-window -v -c "#{pane_current_path}"
 
 bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded."
 
-# bind g run-shell "fish -c \"create_session_with_ghq\""
-bind g run-shell "~/bin/tmux-ghq"
+bind g run-shell "$HOME/.config/tmux/scripts/tmux-ghq.sh"
 # bind s run-shell "fish -c \"show_tmux_sessions\""
-bind s display-popup -E "\
-  tmux list-sessions -F '#{session_name}' |\
-  sed '/^$/d' |\
-  fzf --reverse |\
-  xargs tmux switch-client -t"
+# bind s display-popup -E "\
+#   tmux list-sessions -F '#{session_name}' |\
+#   sed '/^$/d' |\
+#   fzf --reverse |\
+#   xargs tmux switch-client -t"
 
-bind V run-shell "~/bin/ide"
+bind-key "V" run-shell "$HOME/.config/tmux/scripts/tmux-layout.sh"
 
-# tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
+bind-key "s" run-shell "sesh connect \"$(
+  sesh list --icons | fzf-tmux -p 80%,70% \
+    --no-sort --ansi --border-label ' sesh ' --prompt '󰖟   ' \
+    --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+    --bind 'tab:down,btab:up' \
+    --bind 'ctrl-a:change-prompt(󰖟 )+reload(sesh list --icons)' \
+    --bind 'ctrl-t:change-prompt(󰲋 )+reload(sesh list -t --icons)' \
+    --bind 'ctrl-g:change-prompt( )+reload(sesh list -c --icons)' \
+    --bind 'ctrl-x:change-prompt( )+reload(sesh list -z --icons)' \
+    --bind 'ctrl-f:change-prompt( )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+    --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(󱐋 )+reload(sesh list --icons)' \
+    --preview-window 'right:55%' \
+    --preview 'sesh preview {}'
+)\""
 
-# fzf --reverse --header jump-to-session --preview 'tmux capture-pane -pt {}'  |\
+# bind-key "g" run-shell "sesh connect\ "$(
+#   ghq list | fzf-tmux -p 80%,70% \
+#   --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+#   --bind 'tab:down,btab:up' \
+# )\""
 
+# bind-key "g" run-shell "SESSION_NAME=$(ghq list | fzf-tmux -p 80%,70% --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' --bind 'tab:down,btab:up') && sesh connect \"$SESSION_NAME\" && tmux rename-session -t \"$SESSION_NAME\" \"new-session-name\""
+
+bind-key "g" run-shell "sesh connect \"$(
+  ghq list | fzf-tmux -p 80%,70% \
+  --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+  --bind 'tab:down,btab:up' \
+)\""
 
 # 'v' で選択を始める (default: Space) 
 # 短形選択は 'v' -> 'C-v'
