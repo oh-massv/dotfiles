@@ -15,7 +15,7 @@ set -g @catppuccin_window_number_position 'right'
 set -g @catppuccin_window_status 'no'
 set -g @catppuccin_window_text '#W'
 set -g @catppuccin_window_current_text '#W'
-set -g @catppuccin_status_background '#{@thm_bg}'
+# set -g @catppuccin_status_background '#{@thm_bg}'
 set -g @catppuccin_date_time_text ' %Y.%m.%d %H:%M'
 
 set -g allow-rename off
@@ -44,3 +44,6 @@ if '[ -f ${TMUX_PLUGIN_MANAGER_PATH}/tpm/tpm ]' \
 #   run 'git clone https://github.com/tmux-plugins/tpm "${TMUX_PLUGIN_MANAGER_PATH}/tpm"'
 #   run '${TMUX_PLUGIN_MANAGER_PATH}/tpm/bin/install_plugins'
 # }
+
+set -g status-style default
+set -g popup-style default

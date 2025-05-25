@@ -1,35 +1,45 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    enabled = false,
+    opts = {
+      -- options = {
+      --   section_separators = { left = "", right = "" },
+      --   component_separators = { left = "", right = "" },
+      -- },
+    },
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
-        },
-        opts = { skip = true },
-      })
-      opts.presets = {
-        command_palette = false,
-        lsp_doc_border = true,
-      }
-      opts.views = {
-        cmdline_popup = {
-          -- border = { style = "single" },
-        },
+    -- opts = function(_, opts)
+    --   table.insert(opts.routes, {
+    --     filter = {
+    --       event = "notify",
+    --       find = "No information available",
+    --     },
+    --     opts = { skip = true },
+    --   })
+    --   opts.presets = {
+    --     -- command_palette = false,
+    --     lsp_doc_border = true,
+    --   }
+    --   opts.views = {
+    --     mini = {
+    --       win_options = { winblend = 0 },
+    --     },
+    --   }
+    -- end,
+    opts = {
+      views = {
         mini = {
           win_options = { winblend = 0 },
         },
-        hover = {
-          -- border = { style = "single" },
-        },
-      }
-    end,
+      },
+      presets = {
+        command_palette = false,
+        lsp_doc_border = true,
+      },
+    },
   },
   {
     "akinsho/bufferline.nvim",
@@ -60,8 +70,15 @@ return {
     -- enabled = false,
   },
   {
+    {
+      "echasnovski/mini.statusline",
+      enabled = false,
+      version = "*",
+    },
+  },
+  {
     "freddiehaddad/feline.nvim",
-    -- enabled = false,
+    enabled = false,
     config = function(_, opts)
       local ctp_feline = require("catppuccin.groups.integrations.feline")
 
@@ -113,12 +130,18 @@ return {
       })
     end,
   },
-  -- {
-  --   "folke/edgy.nvim",
-  --   opts = {
-  --     animate = {
-  --       enabled = false,
-  --     },
-  --   }
-  -- },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
+    },
+    keys = {},
+  },
 }

@@ -1,22 +1,28 @@
 shell = "zsh"
 
-# [plugins.zsh-defer]
-# github = "romkatv/zsh-defer"
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+appley = ["defer"]
+
+# must come after syntax highlighting plugin
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
 
-[plugins.zsh-autocomplete]
-github = "marlonrichert/zsh-autocomplete"
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
-# [plugins.zsh-completions]
-# github = "zsh-users/zsh-completions"
-
-[plugins.zsh-abbr]
-github = "olets/zsh-abbr"
-
-[plugins.zsh-autosuggestions-abbreviations-strategy]
-github = "olets/zsh-autosuggestions-abbreviations-strategy"
+# This should come at the end
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'

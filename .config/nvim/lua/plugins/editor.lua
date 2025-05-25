@@ -20,29 +20,35 @@ return {
       },
     },
   },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   dependencies = {
+  --     { "nvim-telescope/telescope-dap.nvim" },
+  --     {
+  --       "delphinus/telescope-memo.nvim",
+  --       keys = {
+  --         { "<leader>mn", "<cmd>MemoNew<cr>", desc = "Memo New" },
+  --         { "<leader>ml", "<cmd>Telescope memo list<cr>", desc = "Memo List" },
+  --         { "<leader>mg", "<cmd>Telescope memo live_grep<cr>", desc = "Memo Grep" },
+  --       },
+  --       config = function()
+  --         require("telescope").load_extension("memo")
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     defaults = {
+  --       -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+  --       prompt_prefix = " ",
+  --       file_ignore_patterns = { "node_modules" },
+  --       -- selection_caret = " ",
+  --     },
+  --   },
+  -- },
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      { "nvim-telescope/telescope-dap.nvim" },
-      {
-        "delphinus/telescope-memo.nvim",
-        keys = {
-          { "<leader>mn", "<cmd>MemoNew<cr>", desc = "Memo New" },
-          { "<leader>ml", "<cmd>Telescope memo list<cr>", desc = "Memo List" },
-          { "<leader>mg", "<cmd>Telescope memo live_grep<cr>", desc = "Memo Grep" },
-        },
-        config = function()
-          require("telescope").load_extension("memo")
-        end,
-      },
-    },
+    "folke/which-key.nvim",
     opts = {
-      defaults = {
-        -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-        prompt_prefix = " ",
-        file_ignore_patterns = { "node_modules" },
-        -- selection_caret = " ",
-      },
+      preset = "modern",
     },
   },
   -- {
@@ -90,23 +96,6 @@ return {
   --   end,
   -- },
   {
-    "folke/zen-mode.nvim",
-    enabled = false,
-    keys = {
-      { "<leader>uz", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
-    },
-    event = "VeryLazy",
-    opts = {
-      plugins = {
-        wezterm = {
-          enabled = true,
-          -- can be either an absolute font size or the number of incremental steps
-          font = "+4", -- (10% increase per step)
-        },
-      },
-    },
-  },
-  {
     "toppair/peek.nvim",
     event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
@@ -144,6 +133,14 @@ return {
       "RainbowDelimSimple",
       "RainbowDelimQuoted",
       "RainbowMultiDelim",
+    },
+  },
+  {
+    "ibhagwan/fzf-lua",
+    opts = {
+      fzf_opts = {
+        ["--layout"] = "default",
+      },
     },
   },
 }

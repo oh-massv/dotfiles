@@ -1,10 +1,10 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "markuplint")
-      table.insert(opts.ensure_installed, "markdownlint")
-    end,
+    -- "williamboman/mason.nvim",
+    -- opts = function(_, opts)
+    --   table.insert(opts.ensure_installed, "markuplint")
+    --   table.insert(opts.ensure_installed, "markdownlint")
+    -- end,
   },
   -- {
   --   "nvimtools/none-ls.nvim",

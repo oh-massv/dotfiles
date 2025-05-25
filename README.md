@@ -2,7 +2,8 @@
 
 WIP
 
-## NOW I USE:
-- wezterm
+## NOW I USE
+
+- kitty
 - tmux
 - nvim (LazyVim distro)

@@ -1,3 +1,12 @@
 [[session]]
-name = "dotfiles"
+name = "oh-massv"
+path = "~/Developer/ghq/github.com/oh-massv"
+
+[[session]]
+name = "oh-massv/dotfiles"
 path = "~/Developer/ghq/github.com/oh-massv/dotfiles"
+
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"

@@ -21,7 +21,6 @@ safe_link() {
 SCRIPT_PATH=$(realpath "$0")
 DOTFILES=$(dirname "$SCRIPT_PATH")
 
-safe_link "$DOTFILES"/bin
 safe_link "$DOTFILES"/.zshrc
 
 # .config/*

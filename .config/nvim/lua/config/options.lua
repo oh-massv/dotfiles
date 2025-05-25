@@ -4,17 +4,18 @@
 
 -- vim.opt.laststatus = 3
 
-vim.opt.winblend = 0
-vim.opt.pumblend = 0
-vim.opt.scrolloff = 10
-
--- vim.opt.foldexpr="v:lua.vim.treesitter.foldexpr()"
--- vim.opt.foldmethod="expr"
-
 vim.g.autoformat = false
+
+vim.g.snacks_animate = false
 
 vim.filetype.add({
   extension = {
     mdx = "mdx",
   }
 })
+
+local opt = vim.opt
+
+opt.scrolloff = 10
+opt.pumblend = 0
+opt.winblend = 0

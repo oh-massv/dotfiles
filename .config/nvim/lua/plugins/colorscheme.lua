@@ -29,26 +29,34 @@ return {
       },
       custom_highlights = function(colors)
         return {
-          -- NotifyBackground = { bg = colors.base },
           -- NoiceCmdlineIcon = { style = {} },
           -- FoldColumn = { fg = colors.lavender },
-          NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
         }
       end,
       integrations = {
+        blink_cmp = true,
         -- leap = true,
         -- notifier = true,
       },
     },
   },
-  { "rose-pine/neovim", name = "rose-pine" },
   {
     "olivercederborg/poimandres.nvim",
     lazy = true,
   },
+
   {
-    "scottmckendry/cyberdream.nvim",
+    "metalelf0/black-metal-theme-neovim",
     lazy = false,
     priority = 1000,
+    config = function()
+      require("black-metal").setup({
+        -- optional configuration here
+        theme = "bathory",
+        variant = "dark",
+        transparent = true
+      })
+      -- require("black-metal").load()
+    end,
   },
 }

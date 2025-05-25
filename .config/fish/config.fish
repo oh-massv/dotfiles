@@ -1,6 +1,5 @@
 # general bin paths
 fish_add_path /usr/local/bin
-fish_add_path $HOME/bin # will be moved
 
 # go
 set -gx GOPATH (go env GOPATH)
