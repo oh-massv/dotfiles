@@ -1,9 +1,13 @@
-# dotfiles
+# Dotfiles
 
-WIP
+> [!WARNING]
+> Currently under construction!
 
-## NOW I USE
+> Managed with [chezmoi](https://github.com/twpayne/chezmoi)
 
-- kitty
-- tmux
-- nvim (LazyVim distro)
+## Quick Start
+
+```bash
+/bin/bash -c "$(curl -fsLS get.chezmoi.io)" -- \
+  init --apply oh-massv
+```
