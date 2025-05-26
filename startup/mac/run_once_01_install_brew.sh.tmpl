@@ -4,7 +4,6 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-BREWFILE_PATH="$(chezmoi target-path dot_Brewfile)"
-brew bundle --file="$BREWFILE_PATH"
+brew bundle --file="$HOME/.Brewfile"
 
 {{ end }}
