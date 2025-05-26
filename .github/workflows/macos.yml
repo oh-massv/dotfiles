@@ -47,4 +47,3 @@ jobs:
           chezmoi apply \
             --destination=/tmp/cheztest \
             --no-tty \
-            -- \
