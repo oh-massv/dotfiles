@@ -3,3 +3,5 @@ LICENSE
 
 backups/   # ignore the backups folder, but not its contents
 backups/** # ignore the contents of backups folder but not the folder itself
+
+**/.DS_Store
