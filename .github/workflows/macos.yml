@@ -33,5 +33,6 @@ jobs:
       - name: Verify target == actual
         run: |
           chezmoi verify \
+            --source="$PWD" \
             --destination=/tmp/cheztest \
             --exclude=scripts
