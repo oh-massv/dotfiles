@@ -9,6 +9,9 @@ jobs:
   verify-macos:
     runs-on: macos-latest
 
+    env:
+      CHEZMOI_SOURCE_DIR: ${{ github.workspace }}
+
     steps:
       # 1. ソースを取得
       - name: Checkout repo
@@ -24,8 +27,7 @@ jobs:
       - name: Generate target state (no scripts)
         run: |
           mkdir -p /tmp/cheztest
-          chezmoi init --source="$PWD" \
-                       --destination=/tmp/cheztest \
+          chezmoi init --destination=/tmp/cheztest \
                        --no-tty --apply \
                        --exclude=scripts
 
@@ -33,6 +35,5 @@ jobs:
       - name: Verify target == actual
         run: |
           chezmoi verify \
-            --source="$PWD" \
             --destination=/tmp/cheztest \
             --exclude=scripts
