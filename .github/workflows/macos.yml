@@ -1,19 +1,37 @@
-name: macos
+name: chezmoi verify (macOS)
+
 on:
-  push:
-    branches: [main]
   pull_request:
+  push:
     branches: [main]
 
 jobs:
-  macos-test:
+  verify-macos:
     runs-on: macos-latest
-    defaults:
-      run:
-        shell: zsh
 
     steps:
-      - uses: actions/checkout@v4
+      # 1. ソースを取得
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Run install.sh
-        run: ${GITHUB_WORKSPACE}/install.sh
+      # 2. chezmoi 本体をインストール
+      - name: Install chezmoi
+        run: |
+          curl -fsLS get.chezmoi.io | bash -s -- -b "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      # 3. 仮想 HOME に dotfiles を展開
+      - name: Generate target state (no scripts)
+        run: |
+          mkdir -p /tmp/cheztest
+          chezmoi init --source="$PWD" \
+                       --destination=/tmp/cheztest \
+                       --no-tty --apply \
+                       --exclude=scripts
+
+      # 4. 検証：差分が無ければ exit 0
+      - name: Verify target == actual
+        run: |
+          chezmoi verify \
+            --destination=/tmp/cheztest \
+            --exclude=scripts
