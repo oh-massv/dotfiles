@@ -37,3 +37,13 @@ jobs:
           chezmoi verify \
             --destination=/tmp/cheztest \
             --exclude=scripts
+
+      # 5. run スクリプト付きで apply（brew の実行を許可）
+      - name: Apply with scripts (dry)
+        run: |
+          mkdir -p /tmp/cheztest
+          chezmoi apply \
+            --destination=/tmp/cheztest \
+            --no-tty \
+            -- \
+            "BREW_FLAGS=--dry-run"      # 環境変数で run スクリプト側に渡す
