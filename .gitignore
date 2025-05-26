@@ -1,6 +1,1 @@
-.config/AstroNvim
-.config/LazyVim
-.config/nvim.lazy
-.config/nvim.bak
-.config/lazygit/state.yml
-backup
+backups
