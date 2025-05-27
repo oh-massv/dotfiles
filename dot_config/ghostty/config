@@ -5,9 +5,9 @@ font-size = 16
 font-feature = -dlig
 font-thicken = false
 
-background-opacity = 1.0
-#background-opacity = 0.8
-#background-blur-radius = 20
+#background-opacity = 1.0
+background-opacity = 0.8
+background-blur-radius = 30
 
 mouse-hide-while-typing = true
 
