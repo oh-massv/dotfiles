@@ -14,3 +14,5 @@ set -g default-terminal "tmux-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
 
 set -g popup-border-lines rounded
+
+set-option -g renumber-windows on
