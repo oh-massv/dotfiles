@@ -136,6 +136,9 @@ return {
       picker = {
         sources = {
           explorer = {
+            win = {
+              input = { title = "" },
+            },
             hidden = true,
             ignored = true,
           },
