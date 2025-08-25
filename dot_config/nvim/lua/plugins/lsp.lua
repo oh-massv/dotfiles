@@ -1,12 +1,14 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = function(_, opts)
-      opts.diagnostics = vim.tbl_extend("force", opts.diagnostics, {
+    opts = {
+      diagnostics = {
         float = { border = "rounded" },
-      })
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-    end,
+      },
+      inlay_hints = {
+        enabled = false,
+      },
+    },
   },
   {
     "mason-org/mason.nvim",
