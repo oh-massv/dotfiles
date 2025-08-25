@@ -8,10 +8,14 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     opts = {
       flavour = "mocha",
       transparent_background = true,
-      -- term_colors = true,
+      float = {
+        transparent = true,
+        solid = true,
+      },
       styles = {
         -- ref: https://github.com/ayamir/nvimdots/blob/f6584ad6e148bebe47a8e66b30dbbee411d76fbc/lua/modules/configs/ui/catppuccin.lua
         comments = {},
@@ -27,16 +31,17 @@ return {
         types = {},
         operators = { "bold" },
       },
-      custom_highlights = function(colors)
-        return {
-          -- NoiceCmdlineIcon = { style = {} },
-          -- FoldColumn = { fg = colors.lavender },
-        }
-      end,
       integrations = {
-        blink_cmp = true,
-        -- leap = true,
-        -- notifier = true,
+        blink_cmp = {
+          style = "bordered",
+        },
+        navic = {
+          enabled = true,
+        },
+        snacks = {
+          enabled = true,
+        },
+        leap = true,
       },
     },
   },
@@ -54,7 +59,7 @@ return {
         -- optional configuration here
         theme = "bathory",
         variant = "dark",
-        transparent = true
+        transparent = true,
       })
       -- require("black-metal").load()
     end,
