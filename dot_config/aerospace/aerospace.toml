@@ -56,12 +56,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'e
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 12
-inner.vertical =   12
-outer.left =       12
-outer.bottom =     12
-outer.top =        12
-outer.right =      12
+inner.horizontal = 8
+inner.vertical =   8
+outer.left =       8
+outer.bottom =     8
+outer.top =        8
+outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -209,26 +209,45 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
+# Make all windows float by default
 [[on-window-detected]]
 check-further-callbacks = true
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = '...'
-run = 'layout floating'
+run = ['layout floating', 'move-node-to-workspace 2']
 
 # [[on-window-detected]]
-# if.app-id = 'com.linguee.DeepLCopyTranslator'
+# if.app-id = '...'
 # run = 'layout floating'
 
+# Make specific apps tiling
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = ['layout tiling']
+run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = ['layout tiling']
 
+# Initial workspace configuration
+# [[on-window-detected]]
+# if.app-id = 'com.apple.finder'
+# run = ['move-node-to-workspace 2']
+#
+# [[on-window-detected]]
+# if.app-id = 'md.obsidian'
+# run = ['move-node-to-workspace 2']
+
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = ['layout tiling']
+if.app-id = 'com.openai.chat'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id='com.apple.systempreferences'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = ['move-node-to-workspace 9']
