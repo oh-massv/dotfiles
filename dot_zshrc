@@ -1,66 +1,53 @@
-#-- ex. fishを使う
-# if [[ -o interactive ]]; then
-#   if /opt/homebrew/bin/fish -n ~/.config/fish/config.fish; then
-#     exec /opt/homebrew/bin/fish
-#   else
-#     echo "Warning: fish configuration has errors. Falling back to zsh."
-#   fi
-# fi
-
-
-#-- 1. 環境変数
+# Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-export EDITOR="nvim"
-export FZF_DEFAULT_OPTS="\
-  --height 40% --layout=reverse --info inline \
+
+FZF_OPTS_BASE="\
+  --height 40% --layout=reverse --info inline"
+
+FZF_THEME_CATPPUCCIN="\
   --color=spinner:#f5e0dc,hl:#f38ba8 \
   --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
   --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
   --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-  --color=selected-bg:#45475a \
-  --multi"
+  --color=selected-bg:#45475a"
 
+# refs: https://github.com/stevedylandev/dotfiles/blob/main/zsh/.zshrc#L93
+FZF_THEME_DARKMATTER='
+  --color=fg:#c1c1c1,fg+:#ffffff,bg+:#222222
+  --color=hl:#5f8787,hl+:#fbcb97,info:#e78a53,marker:#fbcb97
+  --color=prompt:#e78a53,spinner:#5f8787,pointer:#fbcb97,header:#aaaaaa
+  --color=border:#333333,label:#888888,query:#ffffff
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
 
-#-- 2. 外部スクリプト
-source /Users/massv/.docker/init-zsh.sh || true # Added by Docker Desktop
+FZF_THEME="CATPPUCCIN"
 
-source <(fzf --zsh)
+_fzf_theme_var="FZF_THEME_${${FZF_THEME:-CATPPUCCIN}:u}"
+export FZF_DEFAULT_OPTS="$FZF_OPTS_BASE ${(P)_fzf_theme_var}"
+unset _fzf_theme_var
 
-eval "$(sheldon source)"
-
-
-#-- 3. エイリアスとコマンド
-alias vi="nvim"
-alias .="cd ../"
-alias ..="cd ../../"
-alias ..."cd ../../../"
+export EDITOR="nvim"
 
 bindkey -e
 
+alias astronvim="NVIM_APPNAME=astronvim nvim"
+# alias vi="nvim"
+alias vi="astronvim"
+
 if command -v eza > /dev/null; then
-  # abbr -a ls 'eza --icons'
-  alias lt='eza -lhag --tree --level=2 --long --icons --git'
-  alias ll='eza --icons -lhag'
-  alias ltree='eza --icons --tree --git-ignore'
+  alias ls="eza --icons=always"
+  alias ll="eza --long --icons=always"
+  alias la="eza --long --all --icons=always"
+  alias lt="eza --long --tree --level=2 --icons=always"
 fi
 
-
-#-- 5. ハイライト
-# if command -v fast-theme > /dev/null; then
-#   fast-theme XDG:catppuccin-mocha -q
-# fi
-
-# ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
-#
-# (( ${#ABBR_REGULAR_USER_ABBREVIATIONS} )) && {
-#   ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
-#   ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' fg=blue,bold)
-#   ZSH_HIGHLIGHT_REGEXP+=('\<('${(j:|:)${(Qk)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg=blue,bold)
-# }
-
-
-#-- 6. コマンドラインツール
+#-- コマンドラインツール
+eval "$(sheldon source)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+source <(fzf --zsh)
+
+# Added by Antigravity
+export PATH="/Users/massv/.antigravity/antigravity/bin:$PATH"

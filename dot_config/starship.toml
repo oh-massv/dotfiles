@@ -1,9 +1,5 @@
 palette = "catppuccin_mocha"
 
-# [character]
-# success_symbol = "[[󰄛](green) ❯](peach)"
-# error_symbol = "[[󰄛](red) ❯](peach)"
-
 [aws]
 symbol = "  "
 
