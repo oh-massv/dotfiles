@@ -1,7 +1,9 @@
 #!/bin/bash
 
+script="$HOME/.config/tmux/scripts/choose-ghq.sh"
+
 if [[ -z $TMUX ]]; then
-	choose-ghq
+	"$script"
 else
-	tmux popup -E "$HOME/.config/tmux/scripts/choose-ghq.sh"
+	tmux popup -E "$script"
 fi
