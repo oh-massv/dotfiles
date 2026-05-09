@@ -2,9 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      setup = {
-        tailwindcss = function(_, opts)
-          opts.settings = {
+      servers = {
+        tailwindcss = {
+          settings = {
             tailwindCSS = {
               experimental = {
                 classRegex = {
@@ -12,8 +12,17 @@ return {
                 },
               },
             },
-          }
-        end,
+          },
+        },
+        cssls = {
+          settings = {
+            css = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        },
       },
     },
   },

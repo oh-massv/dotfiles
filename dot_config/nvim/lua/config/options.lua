@@ -16,6 +16,7 @@ vim.filetype.add({
 
 local opt = vim.opt
 
+-- opt.cursorcolumn = true
 opt.scrolloff = 10
 opt.pumblend = 0
 opt.winblend = 0

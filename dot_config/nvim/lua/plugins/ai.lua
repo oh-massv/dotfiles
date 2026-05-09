@@ -1,8 +1,18 @@
 return {
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
+    "folke/sidekick.nvim",
+    enabled = false,
     opts = {
-      model = 'claude-3.7-sonnet'
-    }
-  }
+      -- add any options here
+      cli = {
+        win = {
+          layout = "float",
+        },
+        mux = {
+          backend = "tmux",
+          enabled = false,
+        },
+      },
+    },
+  },
 }

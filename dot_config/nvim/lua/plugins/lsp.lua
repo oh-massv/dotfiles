@@ -3,7 +3,13 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = {
-        float = { border = "rounded" },
+        float = {
+          border = "rounded",
+          source = "always",
+        },
+        -- virtual_text = {
+        --   source = 'always',
+        -- },
       },
       inlay_hints = {
         enabled = false,
