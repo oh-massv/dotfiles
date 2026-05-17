@@ -1,0 +1,19 @@
+# XDG / zsh startup
+export ZDOTDIR="$HOME/.config/zsh"
+
+# Default programs
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+
+# PATH
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.antigravity/antigravity/bin"
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  $path
+)
+
+# Language toolchains
+[[ -r "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"

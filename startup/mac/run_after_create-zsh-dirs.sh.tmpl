@@ -1,0 +1,6 @@
+#!/bin/sh
+
+{{ if eq .chezmoi.os "darwin" }}
+mkdir -p "$HOME/.local/state/zsh"
+mkdir -p "$HOME/.cache/zsh"
+{{ end }}
