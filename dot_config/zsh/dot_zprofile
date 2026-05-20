@@ -1,0 +1,10 @@
+# macOS path_helper runs after ~/.zshenv for login shells and can move
+# /usr/bin before Homebrew. Reassert login-shell PATH priority here.
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  "$HOME/.antigravity/antigravity/bin"
+  $path
+)

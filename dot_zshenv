@@ -9,9 +9,6 @@ export VISUAL="$EDITOR"
 typeset -U path PATH
 path=(
   "$HOME/.local/bin"
-  "$HOME/.antigravity/antigravity/bin"
-  /opt/homebrew/bin
-  /opt/homebrew/sbin
   $path
 )
 
