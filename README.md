@@ -1,6 +1,6 @@
 # Dotfiles
 
-> Managed with [chezmoi](https://github.com/twpayne/chezmoi)
+Managed with [chezmoi](https://github.com/twpayne/chezmoi)
 
 > [!WARNING]
 > Currently under construction!
