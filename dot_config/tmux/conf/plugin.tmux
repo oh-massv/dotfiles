@@ -22,16 +22,15 @@ run "~/.local/share/tmux/plugins/tmux/catppuccin.tmux"
 
 #Left Status
 set -g status-left-length 100
-set -g status-left "#{E:@catppuccin_status_session}"
+set -g status-left "#{E:@catppuccin_status_session} "
 
 #Right
 # set -ag status-right "#{E:@catppuccin_status_uptime}"
 
 set -g status-right-length 100
 # set -g status-right "#{E:@catppuccin_status_directory}"
-set -gF status-right '#{E:@catppuccin_status_battery}'
-set -ag status-right "#{E:@catppuccin_status_uptime}"
-set -ag status-right '#{E:@catppuccin_status_date_time}'
+set -gF status-right ' #{E:@catppuccin_status_battery}'
+set -ag status-right ' #{E:@catppuccin_status_date_time}'
 
 #Panes setting
 set -g @catppuccin_pane_status_enabled "yes" # set to "yes" to enable
@@ -51,13 +50,13 @@ set -g @catppuccin_pane_number_position "left" # right, left
 set -g @catppuccin_window_status_style "custom" # basic, rounded, slanted, custom, or none
 set -g @catppuccin_window_text_color "#{@thm_surface_0}"
 set -g @catppuccin_window_number_color "#{@thm_overlay_2}"
-set -g @catppuccin_window_text "#W"
+set -g @catppuccin_window_text " #W"
 set -g @catppuccin_window_number "#I"
 set -g @catppuccin_window_current_text_color "#{@thm_surface_1}"
 set -g @catppuccin_window_current_number_color "#{@thm_mauve}"
-set -g @catppuccin_window_current_text "#W"
+set -g @catppuccin_window_current_text " #W"
 set -g @catppuccin_window_current_number "#I"
-set -g @catppuccin_window_number_position "right"
+set -g @catppuccin_window_number_position "left"
 set -g @catppuccin_window_flags "icon" # none, icon, or text
 set -g @catppuccin_window_flags_icon_last " " # -
 set -g @catppuccin_window_flags_icon_current " " # *
@@ -71,9 +70,9 @@ set -g @catppuccin_window_flags_icon_format "##{?window_activity_flag,#{E:@catpp
 
 #Status
 set -g @catppuccin_status_background 'none'
-set -g @catppuccin_status_left_separator " "
+set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_middle_separator ""
-set -g @catppuccin_status_right_separator " "
+set -g @catppuccin_status_right_separator "█"
 set -g @catppuccin_status_connect_separator "no" # yes, no
 set -g @catppuccin_status_fill "icon"
 set -g @catppuccin_status_module_bg_color "#{@thm_surface_0}"
