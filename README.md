@@ -20,3 +20,19 @@ To enable them on a personal macOS machine, create
 [data]
 installBrew = true
 ```
+
+## Notes
+
+`chezmoi apply` does not install Homebrew packages unless `installBrew` is set.
+
+Some tools may still download dependencies when they are first used:
+
+- `nvim` bootstraps `lazy.nvim` and installs plugins/LSP tooling through AstroNvim.
+- `mise` may install configured runtimes and tools when invoked.
+
+tmux plugins are not installed automatically. To enable them:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+~/.local/share/tmux/plugins/tpm/bin/install_plugins
+```

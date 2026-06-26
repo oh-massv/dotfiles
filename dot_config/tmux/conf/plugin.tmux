@@ -1,9 +1,5 @@
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "${HOME}/.local/share/tmux/plugins"
 
-# Auto-install TPM if it doesn't exist
-if "test ! -d ~/.local/share/tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm && ~/.local/share/tmux/plugins/tpm/bin/install_plugins'"
-
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
@@ -17,8 +13,11 @@ set -g @continuum-restore 'on'
 #Configure the catppuccin plugin
 set -g @catppuccin_flavor "mocha"
 
-run "~/.local/share/tmux/plugins/tmux-battery/battery.tmux"
-run "~/.local/share/tmux/plugins/tmux/catppuccin.tmux"
+if-shell "test -f ~/.local/share/tmux/plugins/tmux-battery/battery.tmux" \
+  "run '~/.local/share/tmux/plugins/tmux-battery/battery.tmux'"
+
+if-shell "test -f ~/.local/share/tmux/plugins/tmux/catppuccin.tmux" \
+  "run '~/.local/share/tmux/plugins/tmux/catppuccin.tmux'"
 
 #Left Status
 set -g status-left-length 100
@@ -79,7 +78,8 @@ set -g @catppuccin_status_module_bg_color "#{@thm_surface_0}"
 
 set -g @catppuccin_date_time_text ' %Y.%m.%d %H:%M'
 
-run "~/.local/share/tmux/plugins/tpm/tpm"
+if-shell "test -f ~/.local/share/tmux/plugins/tpm/tpm" \
+  "run '~/.local/share/tmux/plugins/tpm/tpm'"
 
 # set -g status-bg default
 # set -g status-style bg=default
