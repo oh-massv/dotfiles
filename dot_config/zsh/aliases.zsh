@@ -27,6 +27,4 @@ fi
 # Editor
 # =========================================================
 
-alias astronvim="NVIM_APPNAME=astronvim nvim"
-# alias vi="nvim"
-alias vi="astronvim"
+alias vi="nvim"
