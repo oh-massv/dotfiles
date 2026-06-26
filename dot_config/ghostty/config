@@ -8,12 +8,11 @@ font-feature = -dlig
 font-thicken = true
 font-thicken-strength = 50
 
-background-opacity = 0.8
-background-blur = macos-glass-clear
+#background-opacity = 0.75
+#background-blur = 30
 
 mouse-hide-while-typing = true
 
-macos-non-native-fullscreen = true
 macos-titlebar-style = hidden
 macos-option-as-alt = true
 
@@ -23,6 +22,3 @@ window-padding-x = 0
 window-padding-balance = true
 
 theme = Catppuccin Mocha
-#theme = Black Metal (Bathory)
-
-keybind = ctrl+j=ignore
