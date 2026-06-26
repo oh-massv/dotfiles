@@ -10,10 +10,7 @@ return {
 					local maps = opts.mappings or {}
 					maps.n["<Leader>e"] = {
 						function()
-							require("snacks").explorer({
-								layout = { preset = "vertical" },
-								auto_close = true,
-							})
+							require("snacks").explorer()
 						end,
 						desc = "Open Floating Explorer",
 					}
@@ -33,14 +30,15 @@ return {
 			},
 		},
 		opts = function(_, opts)
-			local keys = {
+			vim.list_extend(opts.dashboard.preset.keys, {
 				{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
-			}
-			table.insert(opts.dashboard.preset.keys, keys)
+			})
 
-			opts.picker = {
+			opts.picker = vim.tbl_deep_extend("force", opts.picker or {}, {
 				sources = {
 					explorer = {
+						layout = { preset = "vertical", layout = { height = 0.9 } },
+						auto_close = true,
 						hidden = true,
 						ignored = true,
 					},
@@ -49,7 +47,7 @@ return {
 					hidden = false,
 					ignored = false,
 				},
-			}
+			})
 		end,
 	},
 }

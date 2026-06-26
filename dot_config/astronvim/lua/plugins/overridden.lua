@@ -3,23 +3,20 @@ return {
 		"AstroNvim/astrocore",
 		---@type AstroCoreOpts
 		opts = {
-			-- autocmds = {
-			-- 	tmux = {
-			-- 		{
-			-- 			event = { "BufNewFile", "BufRead" },
-			-- 			pattern = "*.tmux",
-			-- 			callback = function()
-			-- 				vim.bo.filetype = "tmux"
-			-- 			end,
-			-- 			once = false,
-			-- 		},
-			-- 	},
-			-- },
 			options = {
 				opt = {
 					winborder = "single",
 				},
 			},
+			-- autocmds = {
+			-- 	markdown_settings = {
+			-- 		{
+			-- 			event = "BufRead",
+			-- 			pattern = { "*.md", "*.mdx" },
+			-- 			command = "set wrap",
+			-- 		},
+			-- 	},
+			-- },
 		},
 	},
 	{

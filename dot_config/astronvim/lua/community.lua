@@ -16,6 +16,14 @@ return {
 
 	{ import = "astrocommunity.icon.mini-icons" },
 
+	{ import = "astrocommunity.indent.snacks-indent-hlchunk" },
+
+	{ import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+
+	{ import = "astrocommunity.motion.mini-surround" },
+
+	{ import = "astrocommunity.note-taking.obsidian-nvim" },
+
 	{ import = "astrocommunity.pack.astro" },
 	{ import = "astrocommunity.pack.chezmoi" },
 	{ import = "astrocommunity.pack.docker" },

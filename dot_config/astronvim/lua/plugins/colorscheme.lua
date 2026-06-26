@@ -35,11 +35,11 @@ return {
 				operators = { "bold" },
 			},
 			auto_integrations = true,
-      integrations = {
-        snacks = {
-          indent_scope_color = "mauve",
-        },
-      },
+			integrations = {
+				snacks = {
+					indent_scope_color = "mauve",
+				},
+			},
 		},
 	},
 }
