@@ -137,15 +137,15 @@ brew "yazi"
 brew "yq"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-brew "hudochenkov/sshpass/sshpass"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
+cask "nikitabobko/tap/aerospace", trusted: true
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
+cask "font-ibm-plex-sans-jp"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
